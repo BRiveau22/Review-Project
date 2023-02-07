@@ -185,6 +185,27 @@ auto Gradebook::Action5_Input_Handler(int choice) {
 void Gradebook::Generate_Action5_UI() {
 	std::cout << "Search Grades" << std::endl;
 	
+	int choice = -1;
+	bool valid_choice = false;
+	std::cout << "\n1 - Search by Name" << std::endl;
+	std::cout << "2 - Search by Course" << std::endl;
+	std::cout << "3 - Search by Category" << std::endl;
+	std::cout << "4 - Search by Grade" << std::endl;
+	std::cout << "5 - Home" << std::endl;
+	std::cout << "\nPlease enter a value from 1-5" << std::endl;
+
+	//Runs until a valid choice is input by the user
+	while (!valid_choice) {
+		std::cin >> choice;
+		if (choice < 1 || choice > 5) {
+			std::cout << "Please enter a valid option" << std::endl;
+		}
+		else {
+			valid_choice = true;
+		}
+	}
+
+	Action5_Input_Handler(choice);
 }
 
 auto Gradebook::Action6_Input_Handler(int choice) {
