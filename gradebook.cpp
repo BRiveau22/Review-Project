@@ -30,7 +30,10 @@ void Gradebook::Edit_Grade(int index) {
 
 void Gradebook::Del_Grade(int index) {
 	//User can delete grade at specified index
+	names_vector.erase(names_vector.begin() + index);
 	grades_vector.erase(grades_vector.begin() + index);
+	categories_vector.erase(categories_vector.begin() + index);
+	courses_vector.erase(courses_vector.begin() + index);
 }
 
 void Gradebook::Read_Grades() {
