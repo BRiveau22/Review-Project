@@ -80,17 +80,17 @@ void Gradebook::Display_Course_Overall() {
 	//Displays only the course overall grade
 }
 
-auto Gradebook::Action1_Input_Handler(int index) {
-	if (index == 1) {
+auto Gradebook::Action1_Input_Handler(int choice) {
+	if (choice == 1) {
 		return Display_Grades_Full();
 	}
-	else if (index == 2) {
+	else if (choice == 2) {
 		return Display_Category_Totals();
 	}
-	else if (index == 3) {
+	else if (choice == 3) {
 		return Display_Course_Overall();
 	}
-	else if (index == 4) {
+	else if (choice == 4) {
 		return Generate_Home_UI();
 	}
 }
@@ -118,7 +118,7 @@ void Gradebook::Generate_Action1_UI() {
 	Action1_Input_Handler(choice);
 }
 
-auto Gradebook::Action2_Input_Handler(int index) {
+auto Gradebook::Action2_Input_Handler(int choice) {
 
 }
 
@@ -142,7 +142,7 @@ void Gradebook::Generate_Action2_UI() {
 	Edit_Grade(edit_index);
 }
 
-auto Gradebook::Action3_Input_Handler(int index) {
+auto Gradebook::Action3_Input_Handler(int choice) {
 
 }
 
@@ -151,7 +151,7 @@ void Gradebook::Generate_Action3_UI() {
 	Add_Grades();
 }
 
-auto Gradebook::Action4_Input_Handler(int index) {
+auto Gradebook::Action4_Input_Handler(int choice) {
 
 }
 
@@ -175,7 +175,7 @@ void Gradebook::Generate_Action4_UI() {
 	Del_Grade(del_index);
 }
 
-auto Gradebook::Action5_Input_Handler(int index) {
+auto Gradebook::Action5_Input_Handler(int choice) {
 
 }
 
@@ -184,7 +184,7 @@ void Gradebook::Generate_Action5_UI() {
 	
 }
 
-auto Gradebook::Action6_Input_Handler(int index) {
+auto Gradebook::Action6_Input_Handler(int choice) {
 
 }
 
@@ -193,26 +193,26 @@ void Gradebook::Generate_Action6_UI() {
 	Write_Changes();
 }
 
-auto Gradebook::Home_Input_Handler(int input) {
-	if (input == 1) {
+auto Gradebook::Home_Input_Handler(int choice) {
+	if (choice == 1) {
 		Generate_Action1_UI();
 	}
-	else if (input == 2) {
+	else if (choice == 2) {
 		Generate_Action2_UI();
 	}
-	else if (input == 3) {
+	else if (choice == 3) {
 		Generate_Action3_UI();
 	}
-	else if (input == 4) {
+	else if (choice == 4) {
 		Generate_Action4_UI();
 	}
-	else if (input == 5) {
+	else if (choice == 5) {
 		Generate_Action5_UI();
 	}
-	else if (input == 6) {
+	else if (choice == 6) {
 		Generate_Action6_UI();
 	}
-	else if (input == 7) {
+	else if (choice == 7) {
 		return EXIT_SUCCESS;
 	}
 }
