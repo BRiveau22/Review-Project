@@ -1,0 +1,20 @@
+gradebook.h
+
+gradebook.cpp
+	Functions:
+	 - search_grades
+		returns a list of indexes of grades that match the search
+	 - filter_grades
+		returns a list of indexes of grades that match the filter
+	 - add_grade
+	 - edit_grade
+	 - del_grade
+	 - read_grades
+		reads the current grades from a file and prints them out to the console
+	 - write_changes
+		writes the changes made in the current session to the input file
+	 - display_grades_full
+	 - display_category_totals
+	 - display_course_overall
+
+main.cpp:

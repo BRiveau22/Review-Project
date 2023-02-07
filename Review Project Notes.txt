@@ -1,0 +1,48 @@
+Review Project Notes
+
+Step 1: Form a group of 3-4 members
+
+Step 2: Develop Program
+	Purpose:
+	Write a program to successfully evaluate individual
+	deliverables from CSC 212 to provide an accurate output 
+	of semester course grades
+		Examples:
+		 - Individual: returns an individual deliverable name and grade
+		 - Category: Returns all grades from the category and category total
+		 - Course: Ability to return each of the following
+			 - All grades within their respective categories and a course overall
+			 - Only category totals and course overall
+			 - Only the course overall
+	 - Comments should be embedded within your code
+	 - Successfully compiles accurate output
+	 - Use read input to take in grades from an external file
+	 - Use write output to write any changes back to your input file
+
+Step 3: Submission
+	Primary repository to house your program
+		Proof of contribution (commit and push actions made by each group member)
+	Brief summary of project
+	Evidence of planning
+		Pseudocode/flowcharts
+	Provide detailed instructions for compiling/using your program	
+		CLA
+		function / method calls
+		
+Step 4: Presentation
+	Provide a 8-12 minute code analysis
+	Describe the different aspects of your code	
+		Include how it works and how your group developed your implementations
+	Compile your code demonstrating a working prototype
+		Must use all possible function/method calls and outputs
+	Inputs/Outputs
+		Should exemplify the use of three different data sets
+		Must show variation and prove the program works under various entry conditions
+		
+General Guidance
+	Include a mock dataset for each group member	
+		files, not hard-coded data
+	Use only knowledge learned prior to and outside of CSC 212
+	Includes the required structures
+	Must implement Class structures
+	Use vectors rather than arrays
