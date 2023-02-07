@@ -3,9 +3,11 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 Gradebook::Gradebook(std::string file_name) {
-
+	this->file_name;
 }
 
 std::vector<int> Gradebook::Search_Grades() {
@@ -28,14 +30,42 @@ void Gradebook::Edit_Grade(int index) {
 
 void Gradebook::Del_Grade(int index) {
 	//User can delete grade at specified index
+	grades_vector.erase(grades_vector.begin() + index);
 }
 
 void Gradebook::Read_Grades() {
-	//Reads grades from file and puts them in a vector
+	//Reads grades from file and puts them in the correct vector
+	std::ifstream in_file(file_name);
+	std::string line = "";
+	int line_location = 0;
+
+	while (in_file.is_open() && std::getline(in_file, line)) {
+		std::istringstream current_line(line);
+
+		while (std::getline(current_line, line, ',')) {
+			if (line_location % 4 == 0) {
+				names_vector.push_back(line);
+			}
+			else if (line_location % 4 == 1) {
+				grades_vector.push_back(std::stoi(line));
+			}
+			else if (line_location % 4 == 2) {
+				categories_vector.push_back(line);
+			}
+			else if (line_location % 4 == 3) {
+				courses_vector.push_back(line);
+			}
+			line_location++;
+		}
+	}
+	in_file.close();
 }
 
 void Gradebook::Write_Changes() {
 	//Writes changes to the in_file
+	std::ofstream out_file(file_name);
+
+	out_file.close();
 }
 
 void Gradebook::Display_Grades_Full() {
