@@ -18,7 +18,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="configured CMake for other branches" />
+    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="test commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +110,7 @@
       <workItem from="1676406942634" duration="542000" />
       <workItem from="1676412202551" duration="1540000" />
       <workItem from="1676413760877" duration="3012000" />
-      <workItem from="1676416936384" duration="1000" />
+      <workItem from="1676416936384" duration="59000" />
     </task>
     <task id="LOCAL-00001" summary="added CMakeLists.txt">
       <created>1676413876698</created>
@@ -133,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676416852051</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="test commit">
+      <created>1676416972165</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1676416972165</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,7 +173,8 @@
     <MESSAGE value="added CMakeLists.txt" />
     <MESSAGE value="added descriptions to many functions in gradebook.h" />
     <MESSAGE value="configured CMake for other branches" />
-    <option name="LAST_COMMIT_MESSAGE" value="configured CMake for other branches" />
+    <MESSAGE value="test commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="test commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
