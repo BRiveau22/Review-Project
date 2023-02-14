@@ -83,7 +83,7 @@ void Gradebook::Display_Course_Overall() {
 	//Displays only the course overall grade
 }
 
-auto Gradebook::Action1_Input_Handler(int choice) {
+void Gradebook::Action1_Input_Handler(int choice) {
 	if (choice == 1) {
 		return Display_Grades_Full();
 	}
@@ -121,7 +121,7 @@ void Gradebook::Generate_Action1_UI() {
 	Action1_Input_Handler(choice);
 }
 
-auto Gradebook::Action2_Input_Handler(int choice) {
+void Gradebook::Action2_Input_Handler(int choice) {
 
 }
 
@@ -145,7 +145,7 @@ void Gradebook::Generate_Action2_UI() {
 	Edit_Grade(edit_index);
 }
 
-auto Gradebook::Action3_Input_Handler(int choice) {
+void Gradebook::Action3_Input_Handler(int choice) {
 
 }
 
@@ -154,7 +154,7 @@ void Gradebook::Generate_Action3_UI() {
 	Add_Grades();
 }
 
-auto Gradebook::Action4_Input_Handler(int choice) {
+void Gradebook::Action4_Input_Handler(int choice) {
 
 }
 
@@ -178,7 +178,7 @@ void Gradebook::Generate_Action4_UI() {
 	Del_Grade(del_index);
 }
 
-auto Gradebook::Action5_Input_Handler(int choice) {
+void Gradebook::Action5_Input_Handler(int choice) {
 
 }
 
@@ -208,7 +208,7 @@ void Gradebook::Generate_Action5_UI() {
 	Action5_Input_Handler(choice);
 }
 
-auto Gradebook::Action6_Input_Handler(int choice) {
+void Gradebook::Action6_Input_Handler(int choice) {
 
 }
 
@@ -217,7 +217,7 @@ void Gradebook::Generate_Action6_UI() {
 	Write_Changes();
 }
 
-auto Gradebook::Home_Input_Handler(int choice) {
+int Gradebook::Home_Input_Handler(int choice) {
 	if (choice == 1) {
 		Generate_Action1_UI();
 	}
@@ -237,7 +237,7 @@ auto Gradebook::Home_Input_Handler(int choice) {
 		Generate_Action6_UI();
 	}
 	else if (choice == 7) {
-		return EXIT_SUCCESS;
+		return 0;
 	}
 }
 
