@@ -36,6 +36,6 @@ public:
 	void Generate_Action5_UI();
 	void Action6_Input_Handler(int choice);
 	void Generate_Action6_UI();
-	int Home_Input_Handler(int choice);
+	void Home_Input_Handler(int choice);
 	void Generate_Home_UI();
 };

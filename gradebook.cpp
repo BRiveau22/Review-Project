@@ -217,7 +217,7 @@ void Gradebook::Generate_Action6_UI() {
 	Write_Changes();
 }
 
-int Gradebook::Home_Input_Handler(int choice) {
+void Gradebook::Home_Input_Handler(int choice) {
 	if (choice == 1) {
 		Generate_Action1_UI();
 	}
@@ -237,7 +237,7 @@ int Gradebook::Home_Input_Handler(int choice) {
 		Generate_Action6_UI();
 	}
 	else if (choice == 7) {
-		return 0;
+		EXIT_SUCCESS;
 	}
 }
 
