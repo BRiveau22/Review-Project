@@ -1,0 +1,7 @@
+# ninja log v5
+3	241	6981179446164528	CMakeFiles/Review_Project.dir/Main.cpp.obj	30c63368506f5750
+357	458	6981179448316188	Review_Project.exe	792424c803866efc
+0	357	6981179447322247	CMakeFiles/Review_Project.dir/gradebook.cpp.obj	840f76f6136db38a
+5	222	6981204632321033	CMakeFiles/Review_Project.dir/Main.cpp.obj	30c63368506f5750
+2	322	6981204633316112	CMakeFiles/Review_Project.dir/gradebook.cpp.obj	840f76f6136db38a
+322	405	6981204634126114	Review_Project.exe	792424c803866efc
