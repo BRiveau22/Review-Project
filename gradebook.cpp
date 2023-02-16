@@ -21,7 +21,21 @@ std::vector<int> Gradebook::Filter_Grades() {
 }
 
 void Gradebook::Add_Grades() {
-	//Adds user-specified grades until user enters exit code
+    //Adds user-specified grades until user enters exit code
+    std::cout << "what is the title of the assignment?" << std::endl;
+    //data required for each new grade:
+        //name of assignment
+            //ask for a string and append it to vector
+        //loop that contains grade to check if total is >= to acquired score
+            //grade score
+                //ask for the number of points achieved on the assignment
+            //possible points
+                //ask for the total possible points
+            //check to see that the total is greater than or equal to the achieved score
+        //category of assignment
+            //ask for category (Homework, quiz, test, etc...
+        //course
+            //ask what course the assignment is from
 }
 
 void Gradebook::Edit_Grade(int index) {
@@ -146,12 +160,31 @@ void Gradebook::Generate_Action2_UI() {
 }
 
 void Gradebook::Action3_Input_Handler(int choice) {
-
+    if(choice == 1){
+        Add_Grades();
+    }
+    if(choice == 2){
+        Generate_Home_UI();
+    }
 }
 
+//Grant
 void Gradebook::Generate_Action3_UI() {
-	std::cout << "Add grades" << std::endl;
-	Add_Grades();
+    int choice = -1;
+    bool valid_choice = false;
+    std::cout << "\n1 - Add new grade" << std::endl;
+    std::cout << "2 - finished adding grades, return home" << std::endl;
+    std::cout << "\nPlease enter 1 or 2" << std::endl;
+
+    while(!valid_choice){
+        std::cin >> choice;
+        if(choice >= 1 && choice <= 2){
+            valid_choice = true;
+        }else {
+            std::cout << "Please Enter a valid option" << std::endl;
+        }
+    }
+    Action3_Input_Handler(choice);
 }
 
 void Gradebook::Action4_Input_Handler(int choice) {
