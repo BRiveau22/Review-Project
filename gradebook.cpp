@@ -7,7 +7,7 @@
 #include <sstream>
 
 Gradebook::Gradebook(std::string file_name) {
-	this->file_name;
+	this->file_name = file_name;
 }
 
 std::vector<int> Gradebook::Search_Grades() {
@@ -223,8 +223,9 @@ void Gradebook::Action6_Input_Handler(int choice) {
 }
 
 void Gradebook::Generate_Action6_UI() {
-	std::cout << "Save Changes" << std::endl;
 	Write_Changes();
+	std::cout << "Your changes have been written to " << file_name  << std::endl;
+	return Generate_Home_UI();
 }
 
 int Gradebook::Home_Input_Handler(int choice) {
