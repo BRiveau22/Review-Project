@@ -8,6 +8,23 @@
 
 Gradebook::Gradebook(std::string file_name) {
 	this->file_name = file_name;
+	this->num_elements = 0;
+}
+
+int valid_choice(int num_choices) {
+	bool valid_choice = false;
+	int choice;
+
+	while (!valid_choice) {
+		std::cin >> choice;
+		if (choice >= 1 && choice <= num_choices) {
+			valid_choice = true;
+		}
+		else {
+			std::cout << "Please enter a valid option" << std::endl;
+		}
+	}
+	return choice;
 }
 
 std::vector<int> Gradebook::Search_Grades() {
@@ -59,6 +76,7 @@ void Gradebook::Read_Grades() {
 				courses_vector.push_back(line);
 			}
 			line_location++;
+			num_elements++;
 		}
 	}
 	in_file.close();
@@ -110,7 +128,6 @@ void Gradebook::Action1_Input_Handler(int choice) {
 
 void Gradebook::Generate_Action1_UI() {
 	int choice = -1;
-	bool valid_choice = false;
 	std::cout << "\n1 - View All" << std::endl;
 	std::cout << "2 - View Categories and Course" << std::endl;
 	std::cout << "3 - View Course" << std::endl;
@@ -118,15 +135,7 @@ void Gradebook::Generate_Action1_UI() {
 	std::cout << "\nPlease enter a value from 1-4" << std::endl;
 
 	//Runs until a valid choice is input by the user
-	while (!valid_choice) {
-		std::cin >> choice;
-		if (choice < 1 || choice > 4) {
-			std::cout << "Please enter a valid option" << std::endl;
-		}
-		else {
-			valid_choice = true;
-		}
-	}
+	choice = valid_choice(4);
 
 	Action1_Input_Handler(choice);
 }
@@ -137,20 +146,10 @@ void Gradebook::Action2_Input_Handler(int choice) {
 
 void Gradebook::Generate_Action2_UI() {
 	int edit_index = -1;
-	bool valid_choice = false;
-	int max_index = 10;
 
 	//Checks for valid index
 	std::cout << "Please enter index of grade which you wish to edit:" << std::endl;
-	while (!valid_choice) {
-		std::cin >> edit_index;
-		if (edit_index < 0 || edit_index > max_index) {
-			std::cout << "Please enter a valid index" << std::endl;
-		}
-		else {
-			valid_choice = true;
-		}
-	}
+	edit_index = valid_choice(num_elements - 1);
 
 	Edit_Grade(edit_index);
 }
@@ -170,20 +169,10 @@ void Gradebook::Action4_Input_Handler(int choice) {
 
 void Gradebook::Generate_Action4_UI() {
 	int del_index = -1;
-	bool valid_choice = false;
-	int max_index = 10;
 	
 	//Checks for valid index
 	std::cout << "Please enter index of grade which you wish to delete:" << std::endl;
-	while (!valid_choice) {
-		std::cin >> del_index;
-		if (del_index < 0 || del_index > max_index) {
-			std::cout << "Please enter a valid index" << std::endl;
-		}
-		else {
-			valid_choice = true;
-		}
-	}
+	del_index = valid_choice(num_elements - 1);
 	
 	Del_Grade(del_index);
 }
@@ -193,10 +182,8 @@ void Gradebook::Action5_Input_Handler(int choice) {
 }
 
 void Gradebook::Generate_Action5_UI() {
-	std::cout << "Search Grades" << std::endl;
-	
 	int choice = -1;
-	bool valid_choice = false;
+	std::cout << "Search Grades" << std::endl;
 	std::cout << "\n1 - Search by Name" << std::endl;
 	std::cout << "2 - Search by Course" << std::endl;
 	std::cout << "3 - Search by Category" << std::endl;
@@ -205,15 +192,7 @@ void Gradebook::Generate_Action5_UI() {
 	std::cout << "\nPlease enter a value from 1-5" << std::endl;
 
 	//Runs until a valid choice is input by the user
-	while (!valid_choice) {
-		std::cin >> choice;
-		if (choice < 1 || choice > 5) {
-			std::cout << "Please enter a valid option" << std::endl;
-		}
-		else {
-			valid_choice = true;
-		}
-	}
+	choice = valid_choice(5);
 
 	Action5_Input_Handler(choice);
 }
@@ -254,7 +233,6 @@ int Gradebook::Home_Input_Handler(int choice) {
 
 void Gradebook::Generate_Home_UI() {
 	int choice = -1;
-	bool valid_choice = false;
 	//Generates the startup text-based UI for the user
 	std::cout << "\n1 - View Grades" << std::endl;
 	std::cout << "2 - Edit Grades" << std::endl;
@@ -266,15 +244,7 @@ void Gradebook::Generate_Home_UI() {
 	std::cout << "\nPlease enter a value from 1-7" << std::endl;
 	
 	//Runs until a valid choice is input by the user
-	while (!valid_choice) {
-		std::cin >> choice;
-		if (choice < 1 || choice > 7) {
-			std::cout << "Please enter a valid option" << std::endl;
-		}
-		else {
-			valid_choice = true;
-		}
-	}
+	choice = valid_choice(7);
 
 	Home_Input_Handler(choice);
 }
