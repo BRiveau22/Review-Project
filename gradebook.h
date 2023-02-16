@@ -14,7 +14,7 @@ private:
 	std::vector<int> grade_breakdown;
 public:
 	Gradebook(std::string file_name);
-	std::vector<int> Search_Grades();
+	std::vector<int> Search_Grades();//text input from user, outputs a vector of results
 	std::vector<int> Filter_Grades();
 	void Add_Grades();
 	void Edit_Grade(int index);//user inputs the index and specifies what aspect of the grade should be changed
