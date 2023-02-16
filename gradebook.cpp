@@ -11,12 +11,12 @@ Gradebook::Gradebook(std::string file_name) {
 }
 
 std::vector<int> Gradebook::Search_Grades() {
-	std::vector<int> output_indexes = { 0 };
+	std::vector<int> output_indexes;
 	return output_indexes;
 }
 
 std::vector<int> Gradebook::Filter_Grades() {
-	std::vector<int> output_indexes = { 0 };
+	std::vector<int> output_indexes;
 	return output_indexes;
 }
 
