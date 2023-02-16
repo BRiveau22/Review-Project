@@ -67,6 +67,15 @@ void Gradebook::Read_Grades() {
 void Gradebook::Write_Changes() {
 	//Writes changes to the in_file
 	std::ofstream out_file(file_name);
+	std::string line = "";
+
+	for (int i = 0; i < names_vector.size(); i++) {
+		line.append(names_vector[i]);
+		line.append(std::to_string(grades_vector[i]));
+		line.append(categories_vector[i]);
+		line.append(courses_vector[i]);
+		line.append("\n");
+	}
 
 	out_file.close();
 }
