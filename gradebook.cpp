@@ -75,6 +75,7 @@ void Gradebook::Write_Changes() {
 		line.append(categories_vector[i]);
 		line.append(courses_vector[i]);
 		line.append("\n");
+		out_file << line;
 	}
 
 	out_file.close();
