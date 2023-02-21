@@ -58,7 +58,6 @@ void Gradebook::Read_Grades() {
 	std::ifstream in_file(file_name);
 	std::string line = "";
 	int line_location = 0;
-    std::cout << in_file.is_open();
 	while (in_file.is_open() && std::getline(in_file, line)) {
 		std::istringstream current_line(line);
 
