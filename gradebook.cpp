@@ -58,7 +58,7 @@ void Gradebook::Read_Grades() {
 	std::ifstream in_file(file_name);
 	std::string line = "";
 	int line_location = 0;
-
+    std::cout << in_file.is_open();
 	while (in_file.is_open() && std::getline(in_file, line)) {
 		std::istringstream current_line(line);
 
@@ -103,14 +103,114 @@ void Gradebook::Write_Changes() {
 
 void Gradebook::Display_Grades_Full() {
 	//Displays all grades
+    std::cout <<  "Names\tGrades\tCategories\tCourses" << std::endl;
+    std::cout << "____________________________________" << std::endl;
+    for(int i=0; i<this->grades_vector.size(); i++){
+        std::cout << names_vector[i] << "\t" << grades_vector[i] << "    \t" << categories_vector[i] << "\t" << courses_vector[i] << std::endl;
+        std::cout << "____________________________________" << std::endl;
+    }
+    Generate_Action1_UI();
 }
 
 void Gradebook::Display_Category_Totals() {
 	//Displays all category totals and the course overall grade
+    std::vector<std::string> cats_vector;
+    std::vector<std::string> courses;
+    std::vector<int> points_vector;
+
+
+    // Finds all unique courses and categories
+    for(int i=0; i<this->grades_vector.size(); i++){
+        if(std::find(cats_vector.begin(), cats_vector.end(), categories_vector[i]) == cats_vector.end()){
+            cats_vector.push_back(categories_vector[i]);
+        }
+
+        if(std::find(courses.begin(), courses.end(), courses_vector[i]) == courses.end()){
+            courses.push_back(courses_vector[i]);
+        }
+    }
+
+    std::vector<std::vector<int>> course_points(courses.size(), std::vector<int>(cats_vector.size()));
+
+    // Finds points per category
+    for(int j=0; j<cats_vector.size(); j++) {
+        points_vector.push_back(0);
+        for (int k = 0; k < this->grades_vector.size(); k++) {
+            if (cats_vector[j] == this->categories_vector[k]) {
+                points_vector[j] += this->grades_vector[k];
+            }
+        }
+    }
+
+    // Finds points per course
+    for(int p=0; p<courses.size(); p++){
+        for(int r=0; r<this->grades_vector.size(); r++){
+            if(courses[p] == this->courses_vector[r]){
+                for(int c=0; c<cats_vector.size(); c++){
+                    if(cats_vector[c] == this->categories_vector[r]){
+                        course_points[p][c] += this->grades_vector[r];
+                    }
+                }
+            }
+        }
+    }
+
+    // Prints the course, overall course grade, and category grades for the course
+    for(int course=0; course<courses.size(); course++){
+        std::cout << "Course: " << courses[course] << std::endl;
+        int course_total_points = 0;
+
+        for(int cat=0; cat<cats_vector.size(); cat++){
+            bool found_cat = false;
+            for(int r=0; r<this->grades_vector.size(); r++){
+                if(courses[course] == this->courses_vector[r] && cats_vector[cat] == this->categories_vector[r]){
+                    if(!found_cat){
+                        std::cout << "\t" << cats_vector[cat] << std::endl;
+                        found_cat = true;
+                    }
+                }
+            }
+            if(found_cat){
+                std::cout << "\t\tCategory Total Points: " << course_points[course][cat] << std::endl;
+                course_total_points += course_points[course][cat];
+            }
+        }
+        std::cout << "\tOverall Course Grade: " << course_total_points << std::endl;
+        std::cout << "____________________________________" << std::endl;
+    }
+    Generate_Action1_UI();
 }
 
 void Gradebook::Display_Course_Overall() {
 	//Displays only the course overall grade
+    std::vector<std::string> courses;
+    std::vector<int> points;
+
+    // Finds all unique courses
+    for(int i=0; i<this->grades_vector.size(); i++){
+        if(std::find(courses.begin(), courses.end(), courses_vector[i]) == courses.end()){
+            courses.push_back(courses_vector[i]);
+        }
+    }
+
+    // Finds grades for each course
+    for(int p=0; p<courses.size(); p++) {
+        points.push_back(0);
+        for (int r = 0; r < this->grades_vector.size(); r++) {
+            if (courses[p] == this->courses_vector[r]) {
+                points[p] += this->grades_vector[r];
+            }
+        }
+    }
+
+    std::cout << "Course\tGrade" << std::endl;
+    std::cout << "____________________________________" << std::endl;
+    //Prints our courses and their grades
+    for(int course=0; course<courses.size(); course++){
+        std::cout << courses[course] << "\t" << points[course] << std::endl;
+        std::cout << "____________________________________" << std::endl;
+    }
+    Generate_Action1_UI();
 }
 
 void Gradebook::Action1_Input_Handler(int choice) {

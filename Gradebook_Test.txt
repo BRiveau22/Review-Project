@@ -1,1 +1,1 @@
-names,grades,categories,courses
+Maze,100,Assignment,50
