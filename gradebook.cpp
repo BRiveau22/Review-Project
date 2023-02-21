@@ -62,6 +62,7 @@ void Gradebook::Read_Grades() {
 	while (in_file.is_open() && std::getline(in_file, line)) {
 		std::istringstream current_line(line);
 
+		//Based on the location in the line, the value will be placed in the proper vector
 		while (std::getline(current_line, line, ',')) {
 			if (line_location % 4 == 0) {
 				names_vector.push_back(line);
@@ -83,10 +84,11 @@ void Gradebook::Read_Grades() {
 }
 
 void Gradebook::Write_Changes() {
-	//Writes changes to the in_file
+	//Opens the in_file to write to it
 	std::ofstream out_file(file_name);
 	std::string line = "";
 
+	//Writes changes to the in_file
 	for (int i = 0; i < names_vector.size(); i++) {
 		line.append(names_vector[i]);
 		line.append(std::to_string(grades_vector[i]));
