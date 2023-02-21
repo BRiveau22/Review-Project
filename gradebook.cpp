@@ -51,6 +51,7 @@ void Gradebook::Del_Grade(int index) {
 	grades_vector.erase(grades_vector.begin() + index);
 	categories_vector.erase(categories_vector.begin() + index);
 	courses_vector.erase(courses_vector.begin() + index);
+	Generate_Home_UI();
 }
 
 void Gradebook::Read_Grades() {
@@ -273,7 +274,8 @@ void Gradebook::Generate_Action4_UI() {
 	
 	//Checks for valid index
 	std::cout << "Please enter index of grade which you wish to delete:" << std::endl;
-	del_index = valid_choice(num_elements - 1);
+	//Currently only works if you enter the location of the element to delete, but not the index
+	del_index = valid_choice(num_elements - 1) - 1;
 	
 	Del_Grade(del_index);
 }
