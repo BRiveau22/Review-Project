@@ -7,11 +7,11 @@
 class Gradebook {
 private:
 	std::string file_name;
+	int num_elements;
 	std::vector<std::string> names_vector;
 	std::vector<int> grades_vector;
 	std::vector<std::string> categories_vector;
 	std::vector<std::string> courses_vector;
-	std::vector<int> grade_breakdown;
 public:
 	Gradebook(std::string file_name);
 	std::vector<int> Search_Grades();//text input from user, outputs a vector of results
@@ -41,6 +41,6 @@ public:
 	void Generate_Action5_UI();
 	void Action6_Input_Handler(int choice);
 	void Generate_Action6_UI();
-	int Home_Input_Handler(int choice);
+	void Home_Input_Handler(int choice);
 	void Generate_Home_UI();
 };
