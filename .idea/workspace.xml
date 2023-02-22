@@ -20,7 +20,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="added a comment for Search_Grades() in the header file&#10;WIP code written for Search_Grades()" />
+    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="test commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,9 +33,10 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Search_Grades" />
+        <entry key="$PROJECT_DIR$" value="CMake" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
@@ -46,10 +47,6 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
-                  <RecentBranch>
-                    <option name="branchName" value="Filter_Grades" />
-                    <option name="lastUsedInstant" value="1676417178" />
-                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="Search_Grades" />
                     <option name="lastUsedInstant" value="1676416866" />
@@ -116,10 +113,8 @@
       <workItem from="1676406942634" duration="542000" />
       <workItem from="1676412202551" duration="1540000" />
       <workItem from="1676413760877" duration="3012000" />
-      <workItem from="1676416936384" duration="460000" />
-      <workItem from="1676579908778" duration="4126000" />
-      <workItem from="1676994217420" duration="149000" />
-      <workItem from="1677102253110" duration="645000" />
+      <workItem from="1676416936384" duration="59000" />
+      <workItem from="1676981052826" duration="332000" />
     </task>
     <task id="LOCAL-00001" summary="added CMakeLists.txt">
       <created>1676413876698</created>
@@ -149,28 +144,7 @@
       <option name="project" value="LOCAL" />
       <updated>1676416972165</updated>
     </task>
-    <task id="LOCAL-00005" summary="branch initialization">
-      <created>1676417020047</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1676417020047</updated>
-    </task>
-    <task id="LOCAL-00006" summary="added a comment for Search_Grades() in the header file&#10;WIP code written for Search_Grades()">
-      <created>1676583995472</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1676583995472</updated>
-    </task>
-    <task id="LOCAL-00007" summary="added a comment for Search_Grades() in the header file&#10;WIP code written for Search_Grades()">
-      <created>1677102299321</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1677102299321</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,9 +178,7 @@
     <MESSAGE value="added descriptions to many functions in gradebook.h" />
     <MESSAGE value="configured CMake for other branches" />
     <MESSAGE value="test commit" />
-    <MESSAGE value="branch initialization" />
-    <MESSAGE value="added a comment for Search_Grades() in the header file&#10;WIP code written for Search_Grades()" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a comment for Search_Grades() in the header file&#10;WIP code written for Search_Grades()" />
+    <option name="LAST_COMMIT_MESSAGE" value="test commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
