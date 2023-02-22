@@ -28,8 +28,21 @@ int valid_choice(int num_choices) {
 }
 
 std::vector<int> Gradebook::Search_Grades() {
-	std::vector<int> output_indexes;
-	return output_indexes;
+    std::vector<int> output_indexes;
+    //create a input variable with a input handling function
+
+
+    std::vector<int>::iterator it;
+    it = find(grades_vector.begin(), grades_vector.end(), input);
+    if (it != grades_vector.end())
+    //    std::cout << "Element found in myvector: " << *it << '\n';
+    //  else
+    //    std::cout << "Element not found in myvector\n";
+    for(int i = 0; i < this->grades_vector.size(); i++){
+        if(input )
+    }
+
+    return output_indexes;
 }
 
 std::vector<int> Gradebook::Filter_Grades() {

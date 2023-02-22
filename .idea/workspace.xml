@@ -20,7 +20,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="test commit" />
+    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="test commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradebook.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gradebook.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="CMake" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,11 +52,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="Search_Grades" />
-                    <option name="lastUsedInstant" value="1676416866" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="CMake" />
-                    <option name="lastUsedInstant" value="1676416647" />
+                    <option name="lastUsedInstant" value="1677106355" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
@@ -115,6 +114,7 @@
       <workItem from="1676413760877" duration="3012000" />
       <workItem from="1676416936384" duration="59000" />
       <workItem from="1676981052826" duration="332000" />
+      <workItem from="1677106850000" duration="1520000" />
     </task>
     <task id="LOCAL-00001" summary="added CMakeLists.txt">
       <created>1676413876698</created>
@@ -144,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676416972165</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="test commit">
+      <created>1677106601408</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677106601408</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,13 +168,28 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/CMake" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
