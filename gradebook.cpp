@@ -21,7 +21,29 @@ std::vector<int> Gradebook::Filter_Grades() {
 }
 
 void Gradebook::Add_Grades() {
-	//Adds user-specified grades until user enters exit code
+	//Initializes variables
+	std::string name = "";
+	std::string category = "";
+	std::string course = "";
+	int grade = 0;
+
+	//Takes in user input
+	std::cout << "Enter name: ";
+	std::cin  >> name;
+	std::cout << "\nEnter grade: ";
+	std::cin >> grade;
+	std::cout << "\nEnter category: ";
+	std::cin >> category;
+	std::cout << "\nEnter course: ";
+	std::cin >> course;
+
+	//Appends the user-input values to the proper vector
+	names_vector.push_back(name);
+	grades_vector.push_back(grade);
+	categories_vector.push_back(category);
+	courses_vector.push_back(course);
+	num_elements++;
+	Generate_Action3_UI();
 }
 
 void Gradebook::Edit_Grade(int index) {
@@ -146,12 +168,22 @@ void Gradebook::Generate_Action2_UI() {
 }
 
 void Gradebook::Action3_Input_Handler(int choice) {
-
+	if (choice == 1) {
+		Add_Grades();
+	}
+	else if(choice == 2) {
+		Generate_Home_UI();
+	}
 }
 
 void Gradebook::Generate_Action3_UI() {
 	std::cout << "Add grades" << std::endl;
-	Add_Grades();
+
+	int choice = -1;
+	std::cout << "\n1 - Add grade" << std::endl;
+	std::cout << "2 - Home" << std::endl;
+	choice = Valid_Choice(2);
+	Action3_Input_Handler(choice);
 }
 
 void Gradebook::Action4_Input_Handler(int choice) {
