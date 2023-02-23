@@ -11,6 +11,7 @@ Gradebook::Gradebook(std::string file_name) {
 	this->num_elements = 0;
 }
 
+
 int valid_choice(int num_choices) {
 	bool valid_choice = false;
 	int choice;
@@ -29,17 +30,30 @@ int valid_choice(int num_choices) {
 
 std::vector<int> Gradebook::Search_Grades() {
     std::vector<int> output_indexes;
-    //create a input variable with a input handling function
+    std::string input;
+    std::cout << "Please enter what you wish to search for" << std::endl;
+    std::cin >> input;
 
-
-    std::vector<int>::iterator it;
-    it = find(grades_vector.begin(), grades_vector.end(), input);
-    if (it != grades_vector.end())
-    //    std::cout << "Element found in myvector: " << *it << '\n';
-    //  else
-    //    std::cout << "Element not found in myvector\n";
-    for(int i = 0; i < this->grades_vector.size(); i++){
-        if(input )
+    for(int i = 0; i < num_elements; i++){
+        if(std::stoi(input) == grades_vector[i]){
+            output_indexes.push_back(i);
+            continue;
+        }
+        else if(input == names_vector[i]){
+            output_indexes.push_back(i);
+            continue;
+        }
+        else if(input == categories_vector[i]){
+            output_indexes.push_back(i);
+            continue;
+        }
+        else if(input == courses_vector[i]){
+            output_indexes.push_back(i);
+            continue;
+        }
+    }
+    if(output_indexes.empty()){
+        std::cout << "Search results empty" << std::endl;
     }
 
     return output_indexes;
@@ -47,6 +61,33 @@ std::vector<int> Gradebook::Search_Grades() {
 
 std::vector<int> Gradebook::Filter_Grades() {
 	std::vector<int> output_indexes;
+
+    std::string input;
+    std::cout << "Please enter what you filter by" << std::endl;
+    std::cin >> input;
+
+    for(int i = 0; i < num_elements; i++){
+        if(std::stoi(input) == grades_vector[i]){
+            output_indexes.push_back(i);
+            continue;
+        }
+        else if(input == names_vector[i]){
+            output_indexes.push_back(i);
+            continue;
+        }
+        else if(input == categories_vector[i]){
+            output_indexes.push_back(i);
+            continue;
+        }
+        else if(input == courses_vector[i]){
+            output_indexes.push_back(i);
+            continue;
+        }
+    }
+
+    if(output_indexes.empty()){
+        std::cout << "Filter results empty" << std::endl;
+    }
 	return output_indexes;
 }
 
@@ -292,7 +333,11 @@ void Gradebook::Generate_Action4_UI() {
 }
 
 void Gradebook::Action5_Input_Handler(int choice) {
-
+    if(choice >= 1 and choice <= 4){
+        Search_Grades();
+    } else if(choice == 5){
+        return Generate_Home_UI();
+    }
 }
 
 void Gradebook::Generate_Action5_UI() {
