@@ -133,20 +133,20 @@ void Gradebook::Add_Grades() {
         
         //check to see that the total is greater than or equal to the achieved score
         if (grades_vector[num_elements] > grades_total_vector[num_elements]) {
-            std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
+            std::cout << "Your score cannot be greater than the possible points, try again" << std::endl;
         }else{
             gradeCheck = true;
         }
     }
     //category of assignment
     //ask for category (Homework, quiz, test, etc...
-    std::cout << "\nwhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
+    std::cout << "\nWhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
     std::cin >> input;
     categories_vector.push_back(input);
 
     //course
     //ask what course the assignment is from
-    std::cout << "\nwhat course is this assignment from?" << std::endl;
+    std::cout << "\nWhat course is this assignment from?" << std::endl;
     std::cin >> input;
     courses_vector.push_back(input);
 	num_elements++;
@@ -244,10 +244,11 @@ void Gradebook::Write_Changes() {
 
 	//Writes changes to the in_file
 	for (int i = 0; i < names_vector.size(); i++) {
-		line.append(this->names_vector[i]);
-		line.append(std::to_string(this->grades_vector[i]));
-		line.append(this->categories_vector[i]);
-		line.append(this->courses_vector[i]);
+		line.append(this->names_vector[i] + ",");
+		line.append(std::to_string(this->grades_vector[i]) + ",");
+		line.append(std::to_string(this->grades_total_vector[i]) + ",");
+		line.append(this->categories_vector[i] + ",");
+		line.append(this->courses_vector[i] + ",");
 		line.append("\n");
 		out_file << line;
 	}
