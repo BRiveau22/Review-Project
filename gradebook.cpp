@@ -13,6 +13,7 @@ Gradebook::Gradebook(std::string file_name) {
 	this->courses_vector = {};
 	this->names_vector = {};
 	this->grades_vector = {};
+    this->grades_total_vector = {};
 }
 
 int valid_choice(int num_choices) {
@@ -103,7 +104,7 @@ void Gradebook::Add_Grades() {
                     std::cout << "your score cannot be a negative number" << std::endl;
                 }
                 else {
-                    grades_score_vector.push_back(score);
+                    grades_vector.push_back(score);
                     acceptable_input = true;
                 }
             }
@@ -179,7 +180,7 @@ void Gradebook::Edit_Grade(int index) {
                     std::cout << "your score cannot be a negative number" << std::endl;
                 }
                 else {
-                    grades_score_vector[index] = score;
+                    grades_vector[index] = score;
                     acceptable_input = true;
                 }
             }
