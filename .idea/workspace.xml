@@ -20,13 +20,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="Generate action 3 UI completed&#10;Action 3 input handler completed&#10;started Add Grades function">
+    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="Generate action 3 UI completed&#10;Action 3 input handler completed&#10;started Add Grades function (fixed)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Review_Project.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Review_Project.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradebook.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gradebook.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradebook.h" beforeDir="false" afterPath="$PROJECT_DIR$/gradebook.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="CMake" />
+        <entry key="$PROJECT_DIR$" value="Add_Grades" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,16 +54,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="Search_Grades" />
-                    <option name="lastUsedInstant" value="1676416866" />
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1677181437" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="CMake" />
                     <option name="lastUsedInstant" value="1676416647" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1676413784" />
                   </RecentBranch>
                 </list>
               </option>
@@ -181,7 +176,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/CMake" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>

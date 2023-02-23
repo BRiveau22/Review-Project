@@ -107,8 +107,7 @@ std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
 
 void Gradebook::Add_Grades() {
     std::string input;
-    int score = 0;
-    int total = 0;
+    bool gradeCheck = false;
     //Adds user-specified grades until user enters exit code
     //data required for each new grade:
         //name of assignment
@@ -116,7 +115,7 @@ void Gradebook::Add_Grades() {
     std::cin >> input;
     names_vector.push_back(input);
     //loop that contains grade to check if total is >= to acquired score
-    while (total <= score) {
+    while (!gradeCheck) {
         //ask for the number of points achieved on the assignment
         std::cout << "\nHow many points did you get for this assignment?" << std::endl;
         grades_vector.push_back(0);
@@ -128,8 +127,10 @@ void Gradebook::Add_Grades() {
         check_negative(&grades_total_vector[num_elements - 1]);
         
         //check to see that the total is greater than or equal to the achieved score
-        if (score > total) {
+        if (grades_vector[num_elements - 1] > grades_total_vector[num_elements - 1]) {
             std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
+        }else{
+            gradeCheck = true;
         }
     }
     //category of assignment
@@ -151,8 +152,7 @@ void Gradebook::Add_Grades() {
 
 void Gradebook::Edit_Grade(int index) {
     std::string input;
-    int score = 0;
-    int total = 0;
+    bool gradeCheck = false;
     //Adds user-specified grades until user enters exit code
     //data required for each new grade:
     //name of assignment
@@ -160,7 +160,7 @@ void Gradebook::Edit_Grade(int index) {
     std::cin >> input;
     names_vector[index] = input;
     //loop that contains grade to check if total is >= to acquired score
-    while (score <= total) {
+    while (!gradeCheck) {
         //ask for the number of points achieved on the assignment
         std::cout << "\nHow many points did you get for this assignment?" << std::endl;
         check_negative(&grades_vector[index]);
@@ -170,8 +170,10 @@ void Gradebook::Edit_Grade(int index) {
         check_negative(&grades_total_vector[index]);
 
         //check to see that the total is greater than or equal to the achieved score
-        if (score > total) {
+        if (grades_vector[index] > grades_total_vector[index]) {
             std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
+        }else{
+            gradeCheck = true;
         }
     }
     //category of assignment
