@@ -275,7 +275,6 @@ void Gradebook::Display_Grades_Search(std::vector<int> indexes) {
 		std::cout << this->names_vector[indexes[i]] << "\t" << this->grades_vector[indexes[i]] << "/" << this->grades_total_vector[indexes[i]] << "    \t" << this->categories_vector[indexes[i]] << "\t" << this->courses_vector[indexes[i]] << std::endl;
 		std::cout << "____________________________________" << std::endl;
 	}
-	Generate_Action1_UI();
 }
 
 void Gradebook::Display_Category_Totals() {
