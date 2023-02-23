@@ -23,19 +23,15 @@ int valid_choice(int num_choices) {
 	int choice;
 
 	while (!valid_choice) {
-		if (!std::cin.good()) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		}
-
 		std::cin >> choice;
 		
 		if (choice >= 1 && choice <= num_choices) {
 			valid_choice = true;
 		}
-		else{
+		else if(std::cin.fail()){
 			std::cout << "Please enter a valid option" << std::endl;
-			std::cin >> choice;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 	}
 	return choice;
@@ -49,19 +45,20 @@ void check_negative(float* vector_reference) {
     while (!acceptable_input) {
         //possible points
         std::cin >> input;
-        try {
-            score = std::stof(input);
-            if (score < 0) {
-                std::cout << "your score cannot be a negative number" << std::endl;
-            }
-            else {
-                *vector_reference = score;
-                acceptable_input = true;
-            }
-        }
-        catch (std::invalid_argument) {
-            std::cout << "unable to convert input to number, try again" << std::endl;
-        }
+		score = std::stof(input);
+
+		if (score < 0) {
+			std::cout << "Your score cannot be a negative number" << std::endl;
+		}
+		else if (std::cin.fail()) {
+			std::cout << "Unable to convert input to number, try again" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+		else {
+			*vector_reference = score;
+			acceptable_input = true;
+		}
     }
 }
 
@@ -127,15 +124,15 @@ void Gradebook::Add_Grades() {
         //ask for the number of points achieved on the assignment
         std::cout << "\nHow many points did you get for this assignment?" << std::endl;
         grades_vector.push_back(0);
-        check_negative(&grades_vector[num_elements - 1]);
+        check_negative(&grades_vector[num_elements]);
 
         //total points available for the assignment
         std::cout << "\nHow many points were available for this assignment?" << std::endl;
         grades_total_vector.push_back(0);
-        check_negative(&grades_total_vector[num_elements - 1]);
+        check_negative(&grades_total_vector[num_elements]);
         
         //check to see that the total is greater than or equal to the achieved score
-        if (grades_vector[num_elements - 1] > grades_total_vector[num_elements - 1]) {
+        if (grades_vector[num_elements] > grades_total_vector[num_elements]) {
             std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
         }else{
             gradeCheck = true;
@@ -164,7 +161,7 @@ void Gradebook::Edit_Grade(int index) {
     //Adds user-specified grades until user enters exit code
     //data required for each new grade:
     //name of assignment
-    std::cout << "\nwhat is the title of the assignment?" << std::endl;
+    std::cout << "\nWhat is the title of the assignment?" << std::endl;
     std::cin >> input;
     names_vector[index] = input;
     //loop that contains grade to check if total is >= to acquired score
@@ -179,20 +176,20 @@ void Gradebook::Edit_Grade(int index) {
 
         //check to see that the total is greater than or equal to the achieved score
         if (grades_vector[index] > grades_total_vector[index]) {
-            std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
+            std::cout << "Your score cannot be greater than the possible points, try again" << std::endl;
         }else{
             gradeCheck = true;
         }
     }
     //category of assignment
     //ask for category (Homework, quiz, test, etc...
-    std::cout << "\nwhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
+    std::cout << "\nWhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
     std::cin >> input;
     categories_vector[index] = input;
 
     //course
     //ask what course the assignment is from
-    std::cout << "\nwhat course is this assignment from?" << std::endl;
+    std::cout << "\nWhat course is this assignment from?" << std::endl;
     std::cin >> input;
     courses_vector[index] = input;
 	Generate_Home_UI();
@@ -406,8 +403,8 @@ void Gradebook::Generate_Action2_UI() {
 	int edit_index = -1;
 
 	//Checks for valid index
-	std::cout << "Please enter index of grade which you wish to edit:" << std::endl;
-	edit_index = valid_choice(num_elements - 1) - 1;
+	std::cout << "Please enter index of grade which you wish to edit: (First entry is index=1)" << std::endl;
+	edit_index = valid_choice(num_elements) - 1;
 
 	Edit_Grade(edit_index);
 }
@@ -435,9 +432,9 @@ void Gradebook::Generate_Action4_UI() {
 	int del_index = -1;
 	
 	//Checks for valid index
-	std::cout << "Please enter index of grade which you wish to delete:" << std::endl;
+	std::cout << "Please enter index of grade which you wish to delete: (First entry is index=1)" << std::endl;
 	//Currently only works if you enter the location of the element to delete, but not the index
-	del_index = valid_choice(num_elements - 1) - 1;
+	del_index = valid_choice(num_elements) - 1;
 	
 	Del_Grade(del_index);
 }
