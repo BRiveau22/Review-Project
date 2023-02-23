@@ -240,10 +240,10 @@ void Gradebook::Read_Grades() {
 void Gradebook::Write_Changes() {
 	//Opens the in_file to write to it
 	std::ofstream out_file(file_name);
-	std::string line = "";
 
 	//Writes changes to the in_file
 	for (int i = 0; i < names_vector.size(); i++) {
+		std::string line = "";
 		line.append(this->names_vector[i] + ",");
 		line.append(std::to_string(this->grades_vector[i]) + ",");
 		line.append(std::to_string(this->grades_total_vector[i]) + ",");
