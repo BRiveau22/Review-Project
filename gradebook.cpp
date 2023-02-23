@@ -23,19 +23,15 @@ int valid_choice(int num_choices) {
 	int choice;
 
 	while (!valid_choice) {
-		if (!std::cin.good()) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		}
-
 		std::cin >> choice;
 		
 		if (choice >= 1 && choice <= num_choices) {
 			valid_choice = true;
 		}
-		else{
+		else if(std::cin.fail()){
 			std::cout << "Please enter a valid option" << std::endl;
-			std::cin >> choice;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 	}
 	return choice;
