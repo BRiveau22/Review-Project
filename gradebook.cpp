@@ -116,7 +116,7 @@ void Gradebook::Add_Grades() {
     //Adds user-specified grades until user enters exit code
     //data required for each new grade:
         //name of assignment
-    std::cout << "\nwhat is the title of the assignment?" << std::endl;
+    std::cout << "\nWhat is the title of the assignment?" << std::endl;
     std::cin >> input;
     names_vector.push_back(input);
     //loop that contains grade to check if total is >= to acquired score
