@@ -248,8 +248,7 @@ void Gradebook::Write_Changes() {
 		line.append(std::to_string(this->grades_vector[i]) + ",");
 		line.append(std::to_string(this->grades_total_vector[i]) + ",");
 		line.append(this->categories_vector[i] + ",");
-		line.append(this->courses_vector[i] + ",");
-		line.append("\n");
+		line.append(this->courses_vector[i] + "\n");
 		out_file << line;
 	}
 
