@@ -439,18 +439,23 @@ void Gradebook::Generate_Action4_UI() {
 void Gradebook::Action5_Input_Handler(int choice) {
 	if (choice == 1) {
 		Filter_Grades("name");
+		Generate_Action5_UI();
 	}
 	else if (choice == 2) {
 		Filter_Grades("course");
+		Generate_Action5_UI();
 	}
 	else if (choice == 3) {
 		Filter_Grades("category");
+		Generate_Action5_UI();
 	}
 	else if (choice == 4) {
 		Filter_Grades("grade");
+		Generate_Action5_UI();
 	}
 	else if (choice == 5) {
 		Search_Grades();
+		Generate_Action5_UI();
 	}
 	else if (choice == 6) {
 		Generate_Home_UI();
