@@ -31,6 +31,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Gradebook_Test.txt" />
+    <Text Include="Gradebook_Test2.txt" />
   </ItemGroup>
 </Project>

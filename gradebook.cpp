@@ -278,7 +278,7 @@ void Gradebook::Display_Grades_Full() {
 	//Displays all grades
     std::cout <<  "Names\tGrades\tCategories\tCourses" << std::endl;
     std::cout << "____________________________________" << std::endl;
-    for(int i=0; i< this->num_elements; i++){
+    for(int i=0; i< this->num_elements-1; i++){
         std::cout << this->names_vector[i] << "\t" << this->grades_vector[i] << "/" << this->grades_total_vector[i] << "    \t" << this->categories_vector[i] << "\t" << this->courses_vector[i] << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
@@ -394,7 +394,7 @@ void Gradebook::Display_Course_Overall() {
 
     std::cout << "Course\tGrade" << std::endl;
     std::cout << "____________________________________" << std::endl;
-    //Prints our courses and their grades
+    //Prints out courses and their grades
     for(int course=0; course<courses.size(); course++){
         std::cout << courses[course] << "\t" << points[course] << "/" << total_points[course] << std::endl;
         std::cout << "____________________________________" << std::endl;
@@ -456,6 +456,7 @@ void Gradebook::Generate_Action3_UI() {
 	int choice = -1;
 	std::cout << "\n1 - Add grade" << std::endl;
 	std::cout << "2 - Home" << std::endl;
+	std::cout << "\nPlease enter a value from 1-2" << std::endl;
 	choice = valid_choice(2);
 	Action3_Input_Handler(choice);
 }
