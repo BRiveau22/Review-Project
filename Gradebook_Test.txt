@@ -1,0 +1,1 @@
+Maze,100,Assignment,50
