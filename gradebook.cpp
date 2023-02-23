@@ -252,7 +252,7 @@ void Gradebook::Display_Grades_Full() {
     std::cout <<  "Names\tGrades\tCategories\tCourses" << std::endl;
     std::cout << "____________________________________" << std::endl;
     for(int i=0; i< this->grades_vector.size(); i++){
-        std::cout << this->names_vector[i] << "\t" << this->grades_vector[i] << "    \t" << this->categories_vector[i] << "\t" << this->courses_vector[i] << std::endl;
+        std::cout << this->names_vector[i] << "\t" << this->grades_vector[i] << "/" << this->grades_total_vector[i] << "    \t" << this->categories_vector[i] << "\t" << this->courses_vector[i] << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
     Generate_Action1_UI();
@@ -311,17 +311,17 @@ void Gradebook::Display_Category_Totals() {
             for(int r=0; r<this->grades_vector.size(); r++){
                 if(courses[course] == this->courses_vector[r] && cats_vector[cat] == this->categories_vector[r]){
                     if(!found_cat){
-                        std::cout << "\t" << cats_vector[cat] << std::endl;
+                        std::cout  << "\n" << cats_vector[cat] << std::endl;
                         found_cat = true;
                     }
                 }
             }
             if(found_cat){
-                std::cout << "\t\tCategory Total Points: " << course_points[course][cat] << std::endl;
+                std::cout << "Category Total Points: " << course_points[course][cat] << std::endl;
                 course_total_points += course_points[course][cat];
             }
         }
-        std::cout << "\tOverall Course Grade: " << course_total_points << std::endl;
+        std::cout << "Overall Course Grade: " << course_total_points << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
     Generate_Action1_UI();
