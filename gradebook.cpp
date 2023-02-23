@@ -359,7 +359,7 @@ void Gradebook::Generate_Action5_UI() {
 	std::cout << "\nPlease enter a value from 1-9" << std::endl;
 
 	//Runs until a valid choice is input by the user
-	choice = valid_choice(5);
+	choice = valid_choice(9);
 
 	Action5_Input_Handler(choice);
 }
