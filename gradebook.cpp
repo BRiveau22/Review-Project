@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <limits>
 
 Gradebook::Gradebook(std::string file_name) {
 	this->file_name = file_name;
@@ -20,21 +21,24 @@ Gradebook::Gradebook(std::string file_name) {
 int valid_choice(int num_choices) {
 	bool valid_choice = false;
 	int choice;
+	
 
 	while (!valid_choice) {
 		std::cin >> choice;
 		if (choice >= 1 && choice <= num_choices) {
 			valid_choice = true;
 		}
-		else {
+		else{
 			std::cout << "Please enter a valid option" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 	}
 	return choice;
 }
 
-void check_negative(int* vector_reference) {
-    int score;
+void check_negative(float* vector_reference) {
+    float score;
     std::string input;
     bool acceptable_input = false;
 
@@ -42,7 +46,7 @@ void check_negative(int* vector_reference) {
         //possible points
         std::cin >> input;
         try {
-            score = std::stoi(input);
+            score = std::stof(input);
             if (score < 0) {
                 std::cout << "your score cannot be a negative number" << std::endl;
             }
@@ -84,7 +88,7 @@ std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
 	std::cin >> input;
 
 	for (int i = 0; i < num_elements; i++) {
-		if (filter_category == "grade" && std::stoi(input) == this->grades_vector[i]) {
+		if (filter_category == "grade" && std::stof(input) == this->grades_vector[i]) {
 			output_indexes.push_back(i);
 		}
 		else if (filter_category == "name" && input == this->names_vector[i]) {
@@ -187,6 +191,7 @@ void Gradebook::Edit_Grade(int index) {
     std::cout << "\nwhat course is this assignment from?" << std::endl;
     std::cin >> input;
     courses_vector[index] = input;
+	Generate_Action2_UI();
 }
 
 void Gradebook::Del_Grade(int index) {
@@ -209,21 +214,24 @@ void Gradebook::Read_Grades() {
 
 		//Based on the location in the line, the value will be placed in the proper vector
 		while (std::getline(current_line, line, ',')) {
-			if (line_location % 4 == 0) {
+			if (line_location % 5 == 0) {
 				this->names_vector.push_back(line);
 			}
-			else if (line_location % 4 == 1) {
-				this->grades_vector.push_back(std::stoi(line));
+			else if (line_location % 5 == 1) {
+				this->grades_vector.push_back(std::stof(line));
 			}
-			else if (line_location % 4 == 2) {
+			else if (line_location % 5 == 2) {
+				this->grades_total_vector.push_back(std::stof(line));
+			}
+			else if (line_location % 5 == 3) {
 				this->categories_vector.push_back(line);
 			}
-			else if (line_location % 4 == 3) {
+			else if (line_location % 5 == 4) {
 				this->courses_vector.push_back(line);
 			}
 			line_location++;
-			this->num_elements++;
 		}
+		this->num_elements++;
 	}
 	in_file.close();
 }
@@ -251,7 +259,7 @@ void Gradebook::Display_Grades_Full() {
     std::cout <<  "Names\tGrades\tCategories\tCourses" << std::endl;
     std::cout << "____________________________________" << std::endl;
     for(int i=0; i< this->grades_vector.size(); i++){
-        std::cout << this->names_vector[i] << "\t" << this->grades_vector[i] << "    \t" << this->categories_vector[i] << "\t" << this->courses_vector[i] << std::endl;
+        std::cout << this->names_vector[i] << "\t" << this->grades_vector[i] << "/" << this->grades_total_vector[i] << "    \t" << this->categories_vector[i] << "\t" << this->courses_vector[i] << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
     Generate_Action1_UI();
@@ -310,17 +318,17 @@ void Gradebook::Display_Category_Totals() {
             for(int r=0; r<this->grades_vector.size(); r++){
                 if(courses[course] == this->courses_vector[r] && cats_vector[cat] == this->categories_vector[r]){
                     if(!found_cat){
-                        std::cout << "\t" << cats_vector[cat] << std::endl;
+                        std::cout  << "\n" << cats_vector[cat] << std::endl;
                         found_cat = true;
                     }
                 }
             }
             if(found_cat){
-                std::cout << "\t\tCategory Total Points: " << course_points[course][cat] << std::endl;
+                std::cout << "Category Total Points: " << course_points[course][cat] << std::endl;
                 course_total_points += course_points[course][cat];
             }
         }
-        std::cout << "\tOverall Course Grade: " << course_total_points << std::endl;
+        std::cout << "Overall Course Grade: " << course_total_points << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
     Generate_Action1_UI();
@@ -330,9 +338,10 @@ void Gradebook::Display_Course_Overall() {
 	//Displays only the course overall grade
     std::vector<std::string> courses;
     std::vector<int> points;
+	std::vector<int> total_points;
 
     // Finds all unique courses
-    for(int i=0; i<this->grades_vector.size(); i++){
+    for(int i=0; i<this->num_elements; i++){
         if(std::find(courses.begin(), courses.end(), this->courses_vector[i]) == courses.end()){
             courses.push_back(this->courses_vector[i]);
         }
@@ -341,9 +350,11 @@ void Gradebook::Display_Course_Overall() {
     // Finds grades for each course
     for(int p=0; p<courses.size(); p++) {
         points.push_back(0);
+		total_points.push_back(0);
         for (int r = 0; r < this->grades_vector.size(); r++) {
             if (courses[p] == this->courses_vector[r]) {
                 points[p] += this->grades_vector[r];
+				total_points[p] += this->grades_total_vector[r];
             }
         }
     }
@@ -352,7 +363,7 @@ void Gradebook::Display_Course_Overall() {
     std::cout << "____________________________________" << std::endl;
     //Prints our courses and their grades
     for(int course=0; course<courses.size(); course++){
-        std::cout << courses[course] << "\t" << points[course] << std::endl;
+        std::cout << courses[course] << "\t" << points[course]/total_points[course] << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
     Generate_Action1_UI();
@@ -387,10 +398,6 @@ void Gradebook::Generate_Action1_UI() {
 	Action1_Input_Handler(choice);
 }
 
-void Gradebook::Action2_Input_Handler(int choice) {
-
-}
-
 void Gradebook::Generate_Action2_UI() {
 	int edit_index = -1;
 
@@ -420,10 +427,6 @@ void Gradebook::Generate_Action3_UI() {
 	Action3_Input_Handler(choice);
 }
 
-void Gradebook::Action4_Input_Handler(int choice) {
-
-}
-
 void Gradebook::Generate_Action4_UI() {
 	int del_index = -1;
 	
@@ -436,7 +439,29 @@ void Gradebook::Generate_Action4_UI() {
 }
 
 void Gradebook::Action5_Input_Handler(int choice) {
-
+	if (choice == 1) {
+		Filter_Grades("name");
+		Generate_Action5_UI();
+	}
+	else if (choice == 2) {
+		Filter_Grades("course");
+		Generate_Action5_UI();
+	}
+	else if (choice == 3) {
+		Filter_Grades("category");
+		Generate_Action5_UI();
+	}
+	else if (choice == 4) {
+		Filter_Grades("grade");
+		Generate_Action5_UI();
+	}
+	else if (choice == 5) {
+		Search_Grades();
+		Generate_Action5_UI();
+	}
+	else if (choice == 6) {
+		Generate_Home_UI();
+	}
 }
 
 void Gradebook::Generate_Action5_UI() {
@@ -446,17 +471,14 @@ void Gradebook::Generate_Action5_UI() {
 	std::cout << "2 - Search by Course" << std::endl;
 	std::cout << "3 - Search by Category" << std::endl;
 	std::cout << "4 - Search by Grade" << std::endl;
-	std::cout << "5 - Home" << std::endl;
-	std::cout << "\nPlease enter a value from 1-5" << std::endl;
+	std::cout << "5 - Search all" << std::endl;
+	std::cout << "6 - Home" << std::endl;
+	std::cout << "\nPlease enter a value from 1-6" << std::endl;
 
 	//Runs until a valid choice is input by the user
-	choice = valid_choice(5);
+	choice = valid_choice(6);
 
 	Action5_Input_Handler(choice);
-}
-
-void Gradebook::Action6_Input_Handler(int choice) {
-
 }
 
 void Gradebook::Generate_Action6_UI() {
