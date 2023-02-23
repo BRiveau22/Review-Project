@@ -164,7 +164,7 @@ void Gradebook::Edit_Grade(int index) {
     //Adds user-specified grades until user enters exit code
     //data required for each new grade:
     //name of assignment
-    std::cout << "\nwhat is the title of the assignment?" << std::endl;
+    std::cout << "\nWhat is the title of the assignment?" << std::endl;
     std::cin >> input;
     names_vector[index] = input;
     //loop that contains grade to check if total is >= to acquired score
@@ -179,20 +179,20 @@ void Gradebook::Edit_Grade(int index) {
 
         //check to see that the total is greater than or equal to the achieved score
         if (grades_vector[index] > grades_total_vector[index]) {
-            std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
+            std::cout << "Your score cannot be greater than the possible points, try again" << std::endl;
         }else{
             gradeCheck = true;
         }
     }
     //category of assignment
     //ask for category (Homework, quiz, test, etc...
-    std::cout << "\nwhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
+    std::cout << "\nWhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
     std::cin >> input;
     categories_vector[index] = input;
 
     //course
     //ask what course the assignment is from
-    std::cout << "\nwhat course is this assignment from?" << std::endl;
+    std::cout << "\nWhat course is this assignment from?" << std::endl;
     std::cin >> input;
     courses_vector[index] = input;
 	Generate_Home_UI();
@@ -406,7 +406,7 @@ void Gradebook::Generate_Action2_UI() {
 	int edit_index = -1;
 
 	//Checks for valid index
-	std::cout << "Please enter index of grade which you wish to edit:" << std::endl;
+	std::cout << "Please enter index of grade which you wish to edit: (First entry is index=1)" << std::endl;
 	edit_index = valid_choice(num_elements - 1) - 1;
 
 	Edit_Grade(edit_index);
@@ -435,7 +435,7 @@ void Gradebook::Generate_Action4_UI() {
 	int del_index = -1;
 	
 	//Checks for valid index
-	std::cout << "Please enter index of grade which you wish to delete:" << std::endl;
+	std::cout << "Please enter index of grade which you wish to delete: (First entry is index=1)" << std::endl;
 	//Currently only works if you enter the location of the element to delete, but not the index
 	del_index = valid_choice(num_elements - 1) - 1;
 	
