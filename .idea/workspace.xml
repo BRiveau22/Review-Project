@@ -20,8 +20,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="Temp">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="Updated display function to show total points for categories.">
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Review_Project.dir/Main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Review_Project.dir/Main.cpp.o" afterDir="false" />
@@ -137,7 +136,7 @@
       <workItem from="1677159167563" duration="7108000" />
       <workItem from="1677173863008" duration="596000" />
       <workItem from="1677179129487" duration="987000" />
-      <workItem from="1677181087285" duration="10529000" />
+      <workItem from="1677181087285" duration="11317000" />
     </task>
     <task id="LOCAL-00001" summary="added CMakeLists.txt">
       <created>1676413876698</created>
@@ -181,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677182630751</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Updated display function to show total points for categories.">
+      <created>1677192161375</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677192161375</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +223,8 @@
     <MESSAGE value="test commit" />
     <MESSAGE value="Generate action 3 UI completed&#10;Action 3 input handler completed&#10;started Add Grades function" />
     <MESSAGE value="Temp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Temp" />
+    <MESSAGE value="Updated display function to show total points for categories." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated display function to show total points for categories." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
