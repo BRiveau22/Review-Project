@@ -207,21 +207,24 @@ void Gradebook::Read_Grades() {
 
 		//Based on the location in the line, the value will be placed in the proper vector
 		while (std::getline(current_line, line, ',')) {
-			if (line_location % 4 == 0) {
+			if (line_location % 5 == 0) {
 				this->names_vector.push_back(line);
 			}
-			else if (line_location % 4 == 1) {
+			else if (line_location % 5 == 1) {
 				this->grades_vector.push_back(std::stoi(line));
 			}
-			else if (line_location % 4 == 2) {
+			else if (line_location % 5 == 2) {
+				this->grades_total_vector.push_back(std::stoi(line));
+			}
+			else if (line_location % 5 == 3) {
 				this->categories_vector.push_back(line);
 			}
-			else if (line_location % 4 == 3) {
+			else if (line_location % 5 == 4) {
 				this->courses_vector.push_back(line);
 			}
 			line_location++;
-			this->num_elements++;
 		}
+		this->num_elements++;
 	}
 	in_file.close();
 }
@@ -434,7 +437,24 @@ void Gradebook::Generate_Action4_UI() {
 }
 
 void Gradebook::Action5_Input_Handler(int choice) {
-
+	if (choice == 1) {
+		Filter_Grades("name");
+	}
+	else if (choice == 2) {
+		Filter_Grades("course");
+	}
+	else if (choice == 3) {
+		Filter_Grades("category");
+	}
+	else if (choice == 4) {
+		Filter_Grades("grade");
+	}
+	else if (choice == 5) {
+		Search_Grades();
+	}
+	else if (choice == 6) {
+		Generate_Home_UI();
+	}
 }
 
 void Gradebook::Generate_Action5_UI() {
@@ -444,11 +464,12 @@ void Gradebook::Generate_Action5_UI() {
 	std::cout << "2 - Search by Course" << std::endl;
 	std::cout << "3 - Search by Category" << std::endl;
 	std::cout << "4 - Search by Grade" << std::endl;
-	std::cout << "5 - Home" << std::endl;
-	std::cout << "\nPlease enter a value from 1-5" << std::endl;
+	std::cout << "5 - Search all" << std::endl;
+	std::cout << "6 - Home" << std::endl;
+	std::cout << "\nPlease enter a value from 1-6" << std::endl;
 
 	//Runs until a valid choice is input by the user
-	choice = valid_choice(5);
+	choice = valid_choice(6);
 
 	Action5_Input_Handler(choice);
 }
