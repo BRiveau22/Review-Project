@@ -272,15 +272,7 @@ void Gradebook::Generate_Action2_UI() {
 
 	//Checks for valid index
 	std::cout << "Please enter index of grade which you wish to edit:" << std::endl;
-	while (!valid_choice) {
-		std::cin >> edit_index;
-		if (edit_index < 0 || edit_index > max_index) {
-			std::cout << "Please enter a valid index" << std::endl;
-		}
-		else {
-			valid_choice = true;
-		}
-	}
+	edit_index = valid_choice(num_elements - 1) - 1;
 
 	Edit_Grade(edit_index);
 }
