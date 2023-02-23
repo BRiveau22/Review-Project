@@ -35,9 +35,8 @@ std::vector<int> Gradebook::Search_Grades() {
     std::cin >> input;
 
     for(int i = 0; i < num_elements; i++){
-        if(std::stoi(input) == grades_vector[i] || input == names_vector[i] || input == categories_vector[i] || input == courses_vector[i]){
+        if(input == std::to_string(grades_vector[i]) || input == names_vector[i] || input == categories_vector[i] || input == courses_vector[i]){
             output_indexes.push_back(i);
-            continue;
         }
     }
 
@@ -116,8 +115,9 @@ void Gradebook::Read_Grades() {
 				courses_vector.push_back(line);
 			}
 			line_location++;
-			num_elements++;
+			
 		}
+		num_elements++;
 	}
 	in_file.close();
 }
@@ -320,19 +320,25 @@ void Gradebook::Generate_Action4_UI() {
 
 void Gradebook::Action5_Input_Handler(int choice) {
     if(choice == 1){
-		Filter_Grades("name");
+		std::vector<int> filtered_grades = Filter_Grades("name");
+		//Displays grades to the user (create new function to display grades at found indexes)
+		Generate_Action5_UI();
     } 
-	else if (2) {
-		Filter_Grades("course");
+	else if (choice == 2) {
+		std::vector<int> filtered_grades = Filter_Grades("course");
+		Generate_Action5_UI();
 	}
-	else if (3) {
-		Filter_Grades("category");
+	else if (choice == 3) {
+		std::vector<int> filtered_grades = Filter_Grades("category");
+		Generate_Action5_UI();
 	}
-	else if (4) {
-		Filter_Grades("grade");
+	else if (choice == 4) {
+		std::vector<int> filtered_grades = Filter_Grades("grade");
+		Generate_Action5_UI();
 	}
-	else if (5) {
-		Search_Grades();
+	else if (choice == 5) {
+		std::vector<int> filtered_grades = Search_Grades();
+		Generate_Action5_UI();
 	}
 	else if (choice == 6) {
         return Generate_Home_UI();
