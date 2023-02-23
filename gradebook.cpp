@@ -127,20 +127,11 @@ void Gradebook::Action2_Input_Handler(int choice) {
 
 void Gradebook::Generate_Action2_UI() {
 	int edit_index = -1;
-	bool valid_choice = false;
-	int max_index = 10;
 
 	//Checks for valid index
-	std::cout << "Please enter index of grade which you wish to edit:" << std::endl;
-	while (!valid_choice) {
-		std::cin >> edit_index;
-		if (edit_index < 0 || edit_index > max_index) {
-			std::cout << "Please enter a valid index" << std::endl;
-		}
-		else {
-			valid_choice = true;
-		}
-	}
+	std::cout << "Please enter index of grade which you wish to delete:" << std::endl;
+	//Currently only works if you enter the location of the element to delete, but not the index
+	edit_index = valid_choice(num_elements - 1) - 1;
 
 	Edit_Grade(edit_index);
 }
