@@ -20,9 +20,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="test commit">
+    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="finished and implemented search_grades and filter_grades">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradebook.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gradebook.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677106601408</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="finished and implemented search_grades and filter_grades">
+      <created>1677117986729</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677117986729</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +207,8 @@
     <MESSAGE value="configured CMake for other branches" />
     <MESSAGE value="test commit" />
     <MESSAGE value="started work on search_grades" />
-    <option name="LAST_COMMIT_MESSAGE" value="started work on search_grades" />
+    <MESSAGE value="finished and implemented search_grades and filter_grades" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished and implemented search_grades and filter_grades" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
