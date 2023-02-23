@@ -45,8 +45,10 @@ void check_negative(float* vector_reference) {
     while (!acceptable_input) {
         //possible points
         try {
-        std::cin >> input;
-		score = std::stof(input);
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin >> input;
+            score = std::stof(input);
             if (score < 0) {
                 std::cout << "Your score cannot be a negative number" << std::endl;
             } else if (std::cin.fail()) {
@@ -58,7 +60,7 @@ void check_negative(float* vector_reference) {
                 acceptable_input = true;
             }
         }catch(std::invalid_argument) {
-            std::cout << "could not convert input to a number, try again" << std::endl;
+            std::cout << "Could not convert input to a number, try again" << std::endl;
         }
     }
 }
@@ -67,6 +69,8 @@ std::vector<int> Gradebook::Search_Grades() {
 	std::vector<int> output_indexes;
 	std::string input;
 	std::cout << "Please enter what you want to search for:" << std::endl;
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::cin >> input;
 
 	for (int i = 0; i < num_elements; i++) {
@@ -87,6 +91,8 @@ std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
 
 	std::string input;
 	std::cout << "Please enter what you want to filter by (current grouping is " + filter_category + "):" << std::endl;
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::cin >> input;
 
 	for (int i = 0; i < num_elements; i++) {
@@ -118,6 +124,8 @@ void Gradebook::Add_Grades() {
     //data required for each new grade:
         //name of assignment
     std::cout << "\nWhat is the title of the assignment?" << std::endl;
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin >> input;
     names_vector.push_back(input);
     //loop that contains grade to check if total is >= to acquired score
@@ -142,12 +150,16 @@ void Gradebook::Add_Grades() {
     //category of assignment
     //ask for category (Homework, quiz, test, etc...
     std::cout << "\nWhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin >> input;
     categories_vector.push_back(input);
 
     //course
     //ask what course the assignment is from
     std::cout << "\nWhat course is this assignment from?" << std::endl;
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin >> input;
     courses_vector.push_back(input);
 	num_elements++;
@@ -163,6 +175,8 @@ void Gradebook::Edit_Grade(int index) {
     //data required for each new grade:
     //name of assignment
     std::cout << "\nWhat is the title of the assignment?" << std::endl;
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin >> input;
     names_vector[index] = input;
     //loop that contains grade to check if total is >= to acquired score
@@ -185,12 +199,16 @@ void Gradebook::Edit_Grade(int index) {
     //category of assignment
     //ask for category (Homework, quiz, test, etc...
     std::cout << "\nWhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin >> input;
     categories_vector[index] = input;
 
     //course
     //ask what course the assignment is from
     std::cout << "\nWhat course is this assignment from?" << std::endl;
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin >> input;
     courses_vector[index] = input;
 	Generate_Home_UI();
