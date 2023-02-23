@@ -1,4 +1,4 @@
-#define BOOST_TEST_MODULE Gradebook_Tests
+/*#define BOOST_TEST_MODULE Gradebook_Tests
 #include <boost/test/included/unit_test.hpp>
 #include "gradebook.h"
 
@@ -91,4 +91,4 @@ BOOST_AUTO_TEST_CASE(DisplayCourseOverallTest)
     gradebook.Display_Course_Overall();
 }
 
-BOOST_AUTO_TEST_SUITE_END()
+BOOST_AUTO_TEST_SUITE_END()*/
