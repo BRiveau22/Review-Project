@@ -259,11 +259,22 @@ void Gradebook::Display_Grades_Full() {
 	//Displays all grades
     std::cout <<  "Names\tGrades\tCategories\tCourses" << std::endl;
     std::cout << "____________________________________" << std::endl;
-    for(int i=0; i< this->grades_vector.size(); i++){
+    for(int i=0; i< this->num_elements; i++){
         std::cout << this->names_vector[i] << "\t" << this->grades_vector[i] << "/" << this->grades_total_vector[i] << "    \t" << this->categories_vector[i] << "\t" << this->courses_vector[i] << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
     Generate_Action1_UI();
+}
+
+void Gradebook::Display_Grades_Search(std::vector<int> indexes) {
+	//Displays all grades
+	std::cout << "Names\tGrades\tCategories\tCourses" << std::endl;
+	std::cout << "____________________________________" << std::endl;
+	for (int i = 0; i < indexes.size(); i++) {
+		std::cout << this->names_vector[indexes[i]] << "\t" << this->grades_vector[indexes[i]] << "/" << this->grades_total_vector[indexes[i]] << "    \t" << this->categories_vector[indexes[i]] << "\t" << this->courses_vector[indexes[i]] << std::endl;
+		std::cout << "____________________________________" << std::endl;
+	}
+	Generate_Action1_UI();
 }
 
 void Gradebook::Display_Category_Totals() {
@@ -364,7 +375,7 @@ void Gradebook::Display_Course_Overall() {
     std::cout << "____________________________________" << std::endl;
     //Prints our courses and their grades
     for(int course=0; course<courses.size(); course++){
-        std::cout << courses[course] << "\t" << (points[course]/total_points[course]) * 100 << "%" << std::endl;
+        std::cout << courses[course] << "\t" << points[course] << "/" << total_points[course] << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
     Generate_Action1_UI();
@@ -440,24 +451,30 @@ void Gradebook::Generate_Action4_UI() {
 }
 
 void Gradebook::Action5_Input_Handler(int choice) {
+	std::vector<int> index_vector;
 	if (choice == 1) {
-		Filter_Grades("name");
+		index_vector = Filter_Grades("name");
+		Display_Grades_Search(index_vector);
 		Generate_Action5_UI();
 	}
 	else if (choice == 2) {
-		Filter_Grades("course");
+		index_vector = Filter_Grades("course");
+		Display_Grades_Search(index_vector);
 		Generate_Action5_UI();
 	}
 	else if (choice == 3) {
-		Filter_Grades("category");
+		index_vector = Filter_Grades("category");
+		Display_Grades_Search(index_vector);
 		Generate_Action5_UI();
 	}
 	else if (choice == 4) {
-		Filter_Grades("grade");
+		index_vector = Filter_Grades("grade");
+		Display_Grades_Search(index_vector);
 		Generate_Action5_UI();
 	}
 	else if (choice == 5) {
-		Search_Grades();
+		index_vector = Search_Grades();
+		Display_Grades_Search(index_vector);
 		Generate_Action5_UI();
 	}
 	else if (choice == 6) {
