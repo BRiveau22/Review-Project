@@ -72,6 +72,7 @@ void Gradebook::Add_Grades() {
             std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
         }else{
             break;
+            acceptable_input = false;
         }
     }
     //category of assignment
@@ -156,7 +157,7 @@ void Gradebook::Edit_Grade(int index) {
     std::cin >> input;
     courses_vector[index] = input;
 }
-
+/*
 void Gradebook::Del_Grade(int index) {
 	//User can delete grade at specified index
 	names_vector.erase(names_vector.begin() + index);
@@ -164,7 +165,9 @@ void Gradebook::Del_Grade(int index) {
 	categories_vector.erase(categories_vector.begin() + index);
 	courses_vector.erase(courses_vector.begin() + index);
 }
+ */
 
+/*
 void Gradebook::Read_Grades() {
 	//Reads grades from file and puts them in the correct vector
 	std::ifstream in_file(file_name);
@@ -192,6 +195,7 @@ void Gradebook::Read_Grades() {
 	}
 	in_file.close();
 }
+ */
 
 void Gradebook::Write_Changes() {
 	//Writes changes to the in_file
@@ -322,7 +326,7 @@ void Gradebook::Generate_Action4_UI() {
 		}
 	}
 	
-	Del_Grade(del_index);
+	//Del_Grade(del_index);
 }
 
 void Gradebook::Action5_Input_Handler(int choice) {
@@ -386,6 +390,7 @@ int Gradebook::Home_Input_Handler(int choice) {
 	else if (choice == 7) {
 		return 0;
 	}
+    return 0;
 }
 
 void Gradebook::Generate_Home_UI() {

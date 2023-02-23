@@ -19,8 +19,8 @@ public:
 	std::vector<int> Filter_Grades();
 	void Add_Grades();
 	void Edit_Grade(int index);//user inputs the index and specifies what aspect of the grade should be changed
-	void Del_Grade(int index);//delete grade at given index
-	void Read_Grades();//use file name to open file and put data into respective vectors
+	//void Del_Grade(int index);//delete grade at given index
+	//void Read_Grades();//use file name to open file and put data into respective vectors
 	void Write_Changes();//write to the input file using vectors
 
     //take vectors and display information to the user
