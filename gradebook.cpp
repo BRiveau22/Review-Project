@@ -388,10 +388,6 @@ void Gradebook::Generate_Action1_UI() {
 	Action1_Input_Handler(choice);
 }
 
-void Gradebook::Action2_Input_Handler(int choice) {
-
-}
-
 void Gradebook::Generate_Action2_UI() {
 	int edit_index = -1;
 
@@ -419,10 +415,6 @@ void Gradebook::Generate_Action3_UI() {
 	std::cout << "2 - Home" << std::endl;
 	choice = valid_choice(2);
 	Action3_Input_Handler(choice);
-}
-
-void Gradebook::Action4_Input_Handler(int choice) {
-
 }
 
 void Gradebook::Generate_Action4_UI() {
@@ -477,10 +469,6 @@ void Gradebook::Generate_Action5_UI() {
 	choice = valid_choice(6);
 
 	Action5_Input_Handler(choice);
-}
-
-void Gradebook::Action6_Input_Handler(int choice) {
-
 }
 
 void Gradebook::Generate_Action6_UI() {
