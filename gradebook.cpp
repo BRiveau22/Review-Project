@@ -335,7 +335,11 @@ void Gradebook::Generate_Action4_UI() {
 void Gradebook::Action5_Input_Handler(int choice) {
     if(choice >= 1 and choice <= 4){
         Search_Grades();
-    } else if(choice == 5){
+    }
+    else if(choice >= 5 and choice <= 8) {
+        Filter_Grades();
+    }
+    else if(choice == 9){
         return Generate_Home_UI();
     }
 }
@@ -347,8 +351,12 @@ void Gradebook::Generate_Action5_UI() {
 	std::cout << "2 - Search by Course" << std::endl;
 	std::cout << "3 - Search by Category" << std::endl;
 	std::cout << "4 - Search by Grade" << std::endl;
-	std::cout << "5 - Home" << std::endl;
-	std::cout << "\nPlease enter a value from 1-5" << std::endl;
+    std::cout << "5 - Filter by Name" << std::endl;
+    std::cout << "6 - Filter by Course" << std::endl;
+    std::cout << "7 - Filter by Category" << std::endl;
+    std::cout << "8 - Filter by Grade" << std::endl;
+	std::cout << "9 - Home" << std::endl;
+	std::cout << "\nPlease enter a value from 1-9" << std::endl;
 
 	//Runs until a valid choice is input by the user
 	choice = valid_choice(5);
