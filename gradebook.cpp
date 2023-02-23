@@ -127,15 +127,15 @@ void Gradebook::Add_Grades() {
         //ask for the number of points achieved on the assignment
         std::cout << "\nHow many points did you get for this assignment?" << std::endl;
         grades_vector.push_back(0);
-        check_negative(&grades_vector[num_elements - 1]);
+        check_negative(&grades_vector[num_elements]);
 
         //total points available for the assignment
         std::cout << "\nHow many points were available for this assignment?" << std::endl;
         grades_total_vector.push_back(0);
-        check_negative(&grades_total_vector[num_elements - 1]);
+        check_negative(&grades_total_vector[num_elements]);
         
         //check to see that the total is greater than or equal to the achieved score
-        if (grades_vector[num_elements - 1] > grades_total_vector[num_elements - 1]) {
+        if (grades_vector[num_elements] > grades_total_vector[num_elements]) {
             std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
         }else{
             gradeCheck = true;
@@ -407,7 +407,7 @@ void Gradebook::Generate_Action2_UI() {
 
 	//Checks for valid index
 	std::cout << "Please enter index of grade which you wish to edit: (First entry is index=1)" << std::endl;
-	edit_index = valid_choice(num_elements - 1) - 1;
+	edit_index = valid_choice(num_elements) - 1;
 
 	Edit_Grade(edit_index);
 }
@@ -437,7 +437,7 @@ void Gradebook::Generate_Action4_UI() {
 	//Checks for valid index
 	std::cout << "Please enter index of grade which you wish to delete: (First entry is index=1)" << std::endl;
 	//Currently only works if you enter the location of the element to delete, but not the index
-	del_index = valid_choice(num_elements - 1) - 1;
+	del_index = valid_choice(num_elements) - 1;
 	
 	Del_Grade(del_index);
 }
