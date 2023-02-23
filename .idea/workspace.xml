@@ -20,7 +20,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="Generate action 3 UI completed&#10;Action 3 input handler completed&#10;started Add Grades function (fixed)">
+    <list default="true" id="7e9f5ab1-7004-460c-838a-b82df1408701" name="Changes" comment="fixed while loops of add grades and edit grades">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
@@ -159,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676584420270</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixed while loops of add grades and edit grades">
+      <created>1677183758945</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677183758945</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +201,8 @@
     <MESSAGE value="configured CMake for other branches" />
     <MESSAGE value="test commit" />
     <MESSAGE value="Generate action 3 UI completed&#10;Action 3 input handler completed&#10;started Add Grades function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generate action 3 UI completed&#10;Action 3 input handler completed&#10;started Add Grades function" />
+    <MESSAGE value="fixed while loops of add grades and edit grades" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed while loops of add grades and edit grades" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

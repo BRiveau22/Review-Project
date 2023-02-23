@@ -46,19 +46,20 @@ void check_negative(float* vector_reference) {
         //possible points
         std::cin >> input;
 		score = std::stof(input);
-
-		if (score < 0) {
-			std::cout << "Your score cannot be a negative number" << std::endl;
-		}
-		else if (std::cin.fail()) {
-			std::cout << "Unable to convert input to number, try again" << std::endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		}
-		else {
-			*vector_reference = score;
-			acceptable_input = true;
-		}
+        try {
+            if (score < 0) {
+                std::cout << "Your score cannot be a negative number" << std::endl;
+            } else if (std::cin.fail()) {
+                std::cout << "Unable to convert input to number, try again" << std::endl;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            } else {
+                *vector_reference = score;
+                acceptable_input = true;
+            }
+        }catch(std::invalid_argument) {
+            std::cout << "could not convert input to a number, try again" << std::endl;
+        }
     }
 }
 
