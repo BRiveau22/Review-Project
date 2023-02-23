@@ -1,3 +1,3 @@
-C:/Users/great/CLionProjects/Review-Project/cmake-build-debug/CMakeFiles/Review_Project.dir
-C:/Users/great/CLionProjects/Review-Project/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/great/CLionProjects/Review-Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/connorstubbs/Desktop/URI Freshman/CSC 212/Projects/Review Project/Review-Project/cmake-build-debug/CMakeFiles/Review_Project.dir
+/Users/connorstubbs/Desktop/URI Freshman/CSC 212/Projects/Review Project/Review-Project/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/connorstubbs/Desktop/URI Freshman/CSC 212/Projects/Review Project/Review-Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir

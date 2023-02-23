@@ -1,13 +1,5 @@
 # ninja log v5
-13	711	6981171620021454	CMakeFiles/Review_Project.dir/Main.cpp.obj	211b6269a2ef059e
-1010	1285	6981171625703038	Review_Project.exe	2cf8fb5b89f4bfdb
-7	1009	6981171623019813	CMakeFiles/Review_Project.dir/gradebook.cpp.obj	1ab3a02834a8f179
-1	589	6982844733459113	CMakeFiles/Review_Project.dir/Main.cpp.obj	30c63368506f5750
-6	778	6982844735353234	CMakeFiles/Review_Project.dir/gradebook.cpp.obj	840f76f6136db38a
-778	1119	6982844738543235	Review_Project.exe	792424c803866efc
-9	480	6988823475690217	CMakeFiles/Review_Project.dir/Main.cpp.obj	30c63368506f5750
-2	580	6988826540154972	CMakeFiles/Review_Project.dir/gradebook.cpp.obj	840f76f6136db38a
-3	571	6988827216134862	CMakeFiles/Review_Project.dir/gradebook.cpp.obj	840f76f6136db38a
-8	394	6988828390900782	CMakeFiles/Review_Project.dir/Main.cpp.obj	30c63368506f5750
-3	589	6988828647498804	CMakeFiles/Review_Project.dir/gradebook.cpp.obj	840f76f6136db38a
 589	703	6988828648607280	Review_Project.exe	792424c803866efc
+1	1917	1677181100295876132	CMakeFiles/Review_Project.dir/Main.cpp.o	d9b4c8f7273377c4
+0	2107	1677181100471283704	CMakeFiles/Review_Project.dir/gradebook.cpp.o	aa68bc28d73d253a
+2108	2170	1677181100552853345	Review_Project	5dbdc7d6f8721216
