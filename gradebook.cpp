@@ -36,8 +36,32 @@ std::vector<int> Gradebook::Search_Grades() {
 	return output_indexes;
 }
 
-std::vector<int> Gradebook::Filter_Grades() {
+std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
 	std::vector<int> output_indexes;
+
+	std::string input;
+	std::cout << "Please enter what you want to filter by (current grouping is " + filter_category + "):" << std::endl;
+	std::cin >> input;
+
+	for (int i = 0; i < num_elements; i++) {
+		if (filter_category == "grade" && std::stoi(input) == grades_vector[i]) {
+			output_indexes.push_back(i);
+		}
+		else if (filter_category == "name" && input == names_vector[i]) {
+			output_indexes.push_back(i);
+		}
+		else if (filter_category == "category" && input == categories_vector[i]) {
+			output_indexes.push_back(i);
+		}
+		else if (filter_category == "course" && input == courses_vector[i]) {
+			output_indexes.push_back(i);
+		}
+	}
+
+	if (output_indexes.empty()) {
+		std::cout << "Filter results empty" << std::endl;
+	}
+
 	return output_indexes;
 }
 
