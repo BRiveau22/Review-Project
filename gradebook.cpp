@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <limits>
 
 Gradebook::Gradebook(std::string file_name) {
 	this->file_name = file_name;
@@ -20,21 +21,24 @@ Gradebook::Gradebook(std::string file_name) {
 int valid_choice(int num_choices) {
 	bool valid_choice = false;
 	int choice;
+	
 
 	while (!valid_choice) {
 		std::cin >> choice;
 		if (choice >= 1 && choice <= num_choices) {
 			valid_choice = true;
 		}
-		else {
+		else{
 			std::cout << "Please enter a valid option" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 	}
 	return choice;
 }
 
-void check_negative(int* vector_reference) {
-    int score;
+void check_negative(float* vector_reference) {
+    float score;
     std::string input;
     bool acceptable_input = false;
 
@@ -42,7 +46,7 @@ void check_negative(int* vector_reference) {
         //possible points
         std::cin >> input;
         try {
-            score = std::stoi(input);
+            score = std::stof(input);
             if (score < 0) {
                 std::cout << "your score cannot be a negative number" << std::endl;
             }
@@ -84,7 +88,7 @@ std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
 	std::cin >> input;
 
 	for (int i = 0; i < num_elements; i++) {
-		if (filter_category == "grade" && std::stoi(input) == this->grades_vector[i]) {
+		if (filter_category == "grade" && std::stof(input) == this->grades_vector[i]) {
 			output_indexes.push_back(i);
 		}
 		else if (filter_category == "name" && input == this->names_vector[i]) {
@@ -107,8 +111,7 @@ std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
 
 void Gradebook::Add_Grades() {
     std::string input;
-    int score = 0;
-    int total = 0;
+    bool gradeCheck = false;
     //Adds user-specified grades until user enters exit code
     //data required for each new grade:
         //name of assignment
@@ -116,7 +119,7 @@ void Gradebook::Add_Grades() {
     std::cin >> input;
     names_vector.push_back(input);
     //loop that contains grade to check if total is >= to acquired score
-    while (total <= score) {
+    while (!gradeCheck) {
         //ask for the number of points achieved on the assignment
         std::cout << "\nHow many points did you get for this assignment?" << std::endl;
         grades_vector.push_back(0);
@@ -128,8 +131,10 @@ void Gradebook::Add_Grades() {
         check_negative(&grades_total_vector[num_elements - 1]);
         
         //check to see that the total is greater than or equal to the achieved score
-        if (score > total) {
+        if (grades_vector[num_elements - 1] > grades_total_vector[num_elements - 1]) {
             std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
+        }else{
+            gradeCheck = true;
         }
     }
     //category of assignment
@@ -151,8 +156,7 @@ void Gradebook::Add_Grades() {
 
 void Gradebook::Edit_Grade(int index) {
     std::string input;
-    int score = 0;
-    int total = 0;
+    bool gradeCheck = false;
     //Adds user-specified grades until user enters exit code
     //data required for each new grade:
     //name of assignment
@@ -160,7 +164,7 @@ void Gradebook::Edit_Grade(int index) {
     std::cin >> input;
     names_vector[index] = input;
     //loop that contains grade to check if total is >= to acquired score
-    while (score <= total) {
+    while (!gradeCheck) {
         //ask for the number of points achieved on the assignment
         std::cout << "\nHow many points did you get for this assignment?" << std::endl;
         check_negative(&grades_vector[index]);
@@ -170,8 +174,10 @@ void Gradebook::Edit_Grade(int index) {
         check_negative(&grades_total_vector[index]);
 
         //check to see that the total is greater than or equal to the achieved score
-        if (score > total) {
+        if (grades_vector[index] > grades_total_vector[index]) {
             std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
+        }else{
+            gradeCheck = true;
         }
     }
     //category of assignment
@@ -185,7 +191,7 @@ void Gradebook::Edit_Grade(int index) {
     std::cout << "\nwhat course is this assignment from?" << std::endl;
     std::cin >> input;
     courses_vector[index] = input;
-	Generate_Action2_UI();
+	Generate_Home_UI();
 }
 
 void Gradebook::Del_Grade(int index) {
@@ -212,10 +218,10 @@ void Gradebook::Read_Grades() {
 				this->names_vector.push_back(line);
 			}
 			else if (line_location % 5 == 1) {
-				this->grades_vector.push_back(std::stoi(line));
+				this->grades_vector.push_back(std::stof(line));
 			}
 			else if (line_location % 5 == 2) {
-				this->grades_total_vector.push_back(std::stoi(line));
+				this->grades_total_vector.push_back(std::stof(line));
 			}
 			else if (line_location % 5 == 3) {
 				this->categories_vector.push_back(line);
@@ -332,9 +338,10 @@ void Gradebook::Display_Course_Overall() {
 	//Displays only the course overall grade
     std::vector<std::string> courses;
     std::vector<int> points;
+	std::vector<int> total_points;
 
     // Finds all unique courses
-    for(int i=0; i<this->grades_vector.size(); i++){
+    for(int i=0; i<this->num_elements; i++){
         if(std::find(courses.begin(), courses.end(), this->courses_vector[i]) == courses.end()){
             courses.push_back(this->courses_vector[i]);
         }
@@ -343,9 +350,11 @@ void Gradebook::Display_Course_Overall() {
     // Finds grades for each course
     for(int p=0; p<courses.size(); p++) {
         points.push_back(0);
+		total_points.push_back(0);
         for (int r = 0; r < this->grades_vector.size(); r++) {
             if (courses[p] == this->courses_vector[r]) {
                 points[p] += this->grades_vector[r];
+				total_points[p] += this->grades_total_vector[r];
             }
         }
     }
@@ -354,7 +363,7 @@ void Gradebook::Display_Course_Overall() {
     std::cout << "____________________________________" << std::endl;
     //Prints our courses and their grades
     for(int course=0; course<courses.size(); course++){
-        std::cout << courses[course] << "\t" << points[course] << std::endl;
+        std::cout << courses[course] << "\t" << points[course]/total_points[course] << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
     Generate_Action1_UI();
