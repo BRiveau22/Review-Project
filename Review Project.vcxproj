@@ -128,7 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="gradebook.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Gradebook_Test_Cases.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gradebook.h" />
