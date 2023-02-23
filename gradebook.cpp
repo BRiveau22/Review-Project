@@ -44,9 +44,9 @@ void check_negative(float* vector_reference) {
 
     while (!acceptable_input) {
         //possible points
+        try {
         std::cin >> input;
 		score = std::stof(input);
-        try {
             if (score < 0) {
                 std::cout << "Your score cannot be a negative number" << std::endl;
             } else if (std::cin.fail()) {
