@@ -275,7 +275,6 @@ void Gradebook::Display_Grades_Search(std::vector<int> indexes) {
 		std::cout << this->names_vector[indexes[i]] << "\t" << this->grades_vector[indexes[i]] << "/" << this->grades_total_vector[indexes[i]] << "    \t" << this->categories_vector[indexes[i]] << "\t" << this->courses_vector[indexes[i]] << std::endl;
 		std::cout << "____________________________________" << std::endl;
 	}
-	Generate_Action1_UI();
 }
 
 void Gradebook::Display_Category_Totals() {
@@ -283,6 +282,7 @@ void Gradebook::Display_Category_Totals() {
     std::vector<std::string> cats_vector;
     std::vector<std::string> courses;
     std::vector<float> points_vector;
+    std::vector<float> totals_vector;
 
 
     // Finds all unique courses and categories
@@ -301,9 +301,11 @@ void Gradebook::Display_Category_Totals() {
     // Finds points per category
     for(int j=0; j<cats_vector.size(); j++) {
         points_vector.push_back(0);
+        totals_vector.push_back(0);
         for (int k = 0; k < this->grades_vector.size(); k++) {
             if (cats_vector[j] == this->categories_vector[k]) {
                 points_vector[j] += this->grades_vector[k];
+                totals_vector[j] += this->grades_total_vector[k];
             }
         }
     }
@@ -337,7 +339,7 @@ void Gradebook::Display_Category_Totals() {
                 }
             }
             if(found_cat){
-                std::cout << "Category Total Points: " << course_points[course][cat] << std::endl;
+                std::cout << "Category Total Points: " << course_points[course][cat] << "/" <<  totals_vector[cat]<< std::endl;
                 course_total_points += course_points[course][cat];
             }
         }
