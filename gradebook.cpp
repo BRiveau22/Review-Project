@@ -191,7 +191,7 @@ void Gradebook::Edit_Grade(int index) {
     std::cout << "\nwhat course is this assignment from?" << std::endl;
     std::cin >> input;
     courses_vector[index] = input;
-	Generate_Action2_UI();
+	Generate_Home_UI();
 }
 
 void Gradebook::Del_Grade(int index) {
