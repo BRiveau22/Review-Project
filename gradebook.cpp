@@ -33,6 +33,20 @@ int valid_choice(int num_choices) {
 
 std::vector<int> Gradebook::Search_Grades() {
 	std::vector<int> output_indexes;
+	std::string input;
+	std::cout << "Please enter what you want to search for:" << std::endl;
+	std::cin >> input;
+
+	for (int i = 0; i < num_elements; i++) {
+		if (input == std::to_string(this->grades_vector[i]) || input == this->names_vector[i] || input == this->categories_vector[i] || input == this->courses_vector[i]) {
+			output_indexes.push_back(i);
+		}
+	}
+
+	if (output_indexes.empty()) {
+		std::cout << "Search results empty" << std::endl;
+	}
+
 	return output_indexes;
 }
 
@@ -44,16 +58,16 @@ std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
 	std::cin >> input;
 
 	for (int i = 0; i < num_elements; i++) {
-		if (filter_category == "grade" && std::stoi(input) == grades_vector[i]) {
+		if (filter_category == "grade" && std::stoi(input) == this->grades_vector[i]) {
 			output_indexes.push_back(i);
 		}
-		else if (filter_category == "name" && input == names_vector[i]) {
+		else if (filter_category == "name" && input == this->names_vector[i]) {
 			output_indexes.push_back(i);
 		}
-		else if (filter_category == "category" && input == categories_vector[i]) {
+		else if (filter_category == "category" && input == this->categories_vector[i]) {
 			output_indexes.push_back(i);
 		}
-		else if (filter_category == "course" && input == courses_vector[i]) {
+		else if (filter_category == "course" && input == this->courses_vector[i]) {
 			output_indexes.push_back(i);
 		}
 	}
