@@ -23,8 +23,10 @@ int valid_choice(int num_choices) {
 	int choice;
 
 	while (!valid_choice) {
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		if (!std::cin.good()) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
 
 		std::cin >> choice;
 		
