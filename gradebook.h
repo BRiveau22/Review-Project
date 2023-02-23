@@ -15,8 +15,6 @@ private:
 	std::vector<std::string> courses_vector;
 public:
 	Gradebook(std::string file_name);
-	int valid_choice(int num_choices);
-	void check_negative(int* vector_reference);
 
 
 	std::vector<int> Search_Grades();//text input from user, outputs a vector of results
