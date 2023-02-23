@@ -113,19 +113,19 @@ void Gradebook::Read_Grades() {
 		//Based on the location in the line, the value will be placed in the proper vector
 		while (std::getline(current_line, line, ',')) {
 			if (line_location % 4 == 0) {
-				names_vector.push_back(line);
+				this->names_vector.push_back(line);
 			}
 			else if (line_location % 4 == 1) {
-				grades_vector.push_back(std::stoi(line));
+				this->grades_vector.push_back(std::stoi(line));
 			}
 			else if (line_location % 4 == 2) {
-				categories_vector.push_back(line);
+				this->categories_vector.push_back(line);
 			}
 			else if (line_location % 4 == 3) {
-				courses_vector.push_back(line);
+				this->courses_vector.push_back(line);
 			}
 			line_location++;
-			num_elements++;
+			this->num_elements++;
 		}
 	}
 	in_file.close();
@@ -138,10 +138,10 @@ void Gradebook::Write_Changes() {
 
 	//Writes changes to the in_file
 	for (int i = 0; i < names_vector.size(); i++) {
-		line.append(names_vector[i]);
-		line.append(std::to_string(grades_vector[i]));
-		line.append(categories_vector[i]);
-		line.append(courses_vector[i]);
+		line.append(this->names_vector[i]);
+		line.append(std::to_string(this->grades_vector[i]));
+		line.append(this->categories_vector[i]);
+		line.append(this->courses_vector[i]);
 		line.append("\n");
 		out_file << line;
 	}
@@ -153,8 +153,8 @@ void Gradebook::Display_Grades_Full() {
 	//Displays all grades
     std::cout <<  "Names\tGrades\tCategories\tCourses" << std::endl;
     std::cout << "____________________________________" << std::endl;
-    for(int i=0; i<this->grades_vector.size(); i++){
-        std::cout << names_vector[i] << "\t" << grades_vector[i] << "    \t" << categories_vector[i] << "\t" << courses_vector[i] << std::endl;
+    for(int i=0; i< this->grades_vector.size(); i++){
+        std::cout << this->names_vector[i] << "\t" << this->grades_vector[i] << "    \t" << this->categories_vector[i] << "\t" << this->courses_vector[i] << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
     Generate_Action1_UI();
@@ -168,13 +168,13 @@ void Gradebook::Display_Category_Totals() {
 
 
     // Finds all unique courses and categories
-    for(int i=0; i<this->grades_vector.size(); i++){
-        if(std::find(cats_vector.begin(), cats_vector.end(), categories_vector[i]) == cats_vector.end()){
-            cats_vector.push_back(categories_vector[i]);
+    for(int i=0; i< this->grades_vector.size(); i++){
+        if(std::find(cats_vector.begin(), cats_vector.end(), this->categories_vector[i]) == cats_vector.end()){
+            cats_vector.push_back(this->categories_vector[i]);
         }
 
-        if(std::find(courses.begin(), courses.end(), courses_vector[i]) == courses.end()){
-            courses.push_back(courses_vector[i]);
+        if(std::find(courses.begin(), courses.end(), this->courses_vector[i]) == courses.end()){
+            courses.push_back(this->courses_vector[i]);
         }
     }
 
@@ -236,8 +236,8 @@ void Gradebook::Display_Course_Overall() {
 
     // Finds all unique courses
     for(int i=0; i<this->grades_vector.size(); i++){
-        if(std::find(courses.begin(), courses.end(), courses_vector[i]) == courses.end()){
-            courses.push_back(courses_vector[i]);
+        if(std::find(courses.begin(), courses.end(), this->courses_vector[i]) == courses.end()){
+            courses.push_back(this->courses_vector[i]);
         }
     }
 
