@@ -135,7 +135,7 @@
     <ClInclude Include="gradebook.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Gradebook_Test.txt" />
+    <Text Include="Gradebook_Test2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

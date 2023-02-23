@@ -1,0 +1,4 @@
+Maze,45,50,Assignment,CSC 212
+Lab 1,60,60,Lab,CSC 212
+Lab 2,50,60,Lab,CSC 212
+Review Project,150,150,Assignment,CSC 212

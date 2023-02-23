@@ -438,6 +438,7 @@ void Gradebook::Generate_Action3_UI() {
 	int choice = -1;
 	std::cout << "\n1 - Add grade" << std::endl;
 	std::cout << "2 - Home" << std::endl;
+	std::cout << "\nPlease enter a value from 1-2" << std::endl;
 	choice = valid_choice(2);
 	Action3_Input_Handler(choice);
 }
