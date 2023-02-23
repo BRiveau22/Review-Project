@@ -27,6 +27,7 @@ public:
 
     //take vectors and display information to the user
 	void Display_Grades_Full();
+	void Display_Grades_Search(std::vector<int> indexes);
 	void Display_Category_Totals();
 	void Display_Course_Overall();
 
