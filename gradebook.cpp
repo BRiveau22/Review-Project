@@ -21,17 +21,19 @@ Gradebook::Gradebook(std::string file_name) {
 int valid_choice(int num_choices) {
 	bool valid_choice = false;
 	int choice;
-	
 
 	while (!valid_choice) {
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
 		std::cin >> choice;
+		
 		if (choice >= 1 && choice <= num_choices) {
 			valid_choice = true;
 		}
 		else{
 			std::cout << "Please enter a valid option" << std::endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cin >> choice;
 		}
 	}
 	return choice;
@@ -269,7 +271,7 @@ void Gradebook::Display_Category_Totals() {
 	//Displays all category totals and the course overall grade
     std::vector<std::string> cats_vector;
     std::vector<std::string> courses;
-    std::vector<int> points_vector;
+    std::vector<float> points_vector;
 
 
     // Finds all unique courses and categories
@@ -337,8 +339,8 @@ void Gradebook::Display_Category_Totals() {
 void Gradebook::Display_Course_Overall() {
 	//Displays only the course overall grade
     std::vector<std::string> courses;
-    std::vector<int> points;
-	std::vector<int> total_points;
+    std::vector<float> points;
+	std::vector<float> total_points;
 
     // Finds all unique courses
     for(int i=0; i<this->num_elements; i++){
@@ -363,7 +365,7 @@ void Gradebook::Display_Course_Overall() {
     std::cout << "____________________________________" << std::endl;
     //Prints our courses and their grades
     for(int course=0; course<courses.size(); course++){
-        std::cout << courses[course] << "\t" << points[course]/total_points[course] << std::endl;
+        std::cout << courses[course] << "\t" << (points[course]/total_points[course]) * 100 << "%" << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
     Generate_Action1_UI();
