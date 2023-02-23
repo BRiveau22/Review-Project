@@ -8,11 +8,12 @@ class Gradebook {
 private:
 	std::string file_name;
 	int num_elements;
+public:
 	std::vector<std::string> names_vector;
 	std::vector<int> grades_vector;
 	std::vector<std::string> categories_vector;
 	std::vector<std::string> courses_vector;
-public:
+
 	Gradebook(std::string file_name);
 	std::vector<int> Search_Grades();
 	std::vector<int> Filter_Grades();
