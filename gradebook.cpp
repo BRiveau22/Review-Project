@@ -80,54 +80,151 @@ std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
 }
 
 void Gradebook::Add_Grades() {
-	//Initializes variables
-	std::string name = "";
-	std::string category = "";
-	std::string course = "";
-	int grade = 0;
+    std::string input;
+    bool acceptable_input = false;
+    int score = 0;
+    int total = 1;
+    //Adds user-specified grades until user enters exit code
+    //data required for each new grade:
+        //name of assignment
+    std::cout << "\nwhat is the title of the assignment?" << std::endl;
+    std::cin >> input;
+    names_vector.push_back(input);
+    //loop that contains grade to check if total is >= to acquired score
+    while (true) {
+        //ask for the number of points achieved on the assignment
+        std::cout << "\nHow many points did you get for this assignment?" << std::endl;
+        while (!acceptable_input) {
+            //possible points
+            std::cin >> input;
+            try {
+                score = std::stoi(input);
+                if (score < 0) {
+                    std::cout << "your score cannot be a negative number" << std::endl;
+                }
+                else {
+                    grades_score_vector.push_back(score);
+                    acceptable_input = true;
+                }
+            }
+            catch (std::invalid_argument) {
+                std::cout << "unable to convert input to number, try again" << std::endl;
+            }
+        }
+        acceptable_input = false;
+        //total points available for the assignment
+        std::cout << "\nHow many points were available for this assignment?" << std::endl;
+        while (!acceptable_input) {
+            std::cin >> input;
+            try {
+                total = std::stoi(input);
+                if (total < 0) {
+                    std::cout << "your total cannot be a negative number" << std::endl;
+                }
+                else {
+                    grades_total_vector.push_back(total);
+                    acceptable_input = true;
+                }
+            }
+            catch (std::invalid_argument) {
+                std::cout << "unable to convert input to number, try again" << std::endl;
+            }
+        }
+        //check to see that the total is greater than or equal to the achieved score
+        if (score > total) {
+            std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
+        }
+        else {
+            break;
+            acceptable_input = false;
+        }
+    }
+    //category of assignment
+    //ask for category (Homework, quiz, test, etc...
+    std::cout << "\nwhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
+    std::cin >> input;
+    categories_vector.push_back(input);
 
-	//Takes in user input
-	std::cout << "Enter name: ";
-	std::cin  >> name;
-	std::cout << "\nEnter grade: ";
-	std::cin >> grade;
-	std::cout << "\nEnter category: ";
-	std::cin >> category;
-	std::cout << "\nEnter course: ";
-	std::cin >> course;
+    //course
+    //ask what course the assignment is from
+    std::cout << "\nwhat course is this assignment from?" << std::endl;
+    std::cin >> input;
+    courses_vector.push_back(input);
 
-	//Appends the user-input values to the proper vector
-	this->names_vector.push_back(name);
-	this->grades_vector.push_back(grade);
-	this->categories_vector.push_back(category);
-	this->courses_vector.push_back(course);
-	this->num_elements++;
-	Generate_Action3_UI();
+    //return to UI and ask if the user is done or wants to add more grades
+    Generate_Action3_UI();
 }
 
 void Gradebook::Edit_Grade(int index) {
-	//Initializes variables
-	std::string name = "";
-	std::string category = "";
-	std::string course = "";
-	int grade = 0;
+    std::string input;
+    bool acceptable_input = false;
+    int score = 0;
+    int total = 1;
+    //Adds user-specified grades until user enters exit code
+    //data required for each new grade:
+    //name of assignment
+    std::cout << "\nwhat is the title of the assignment?" << std::endl;
+    std::cin >> input;
+    names_vector[index] = input;
+    //loop that contains grade to check if total is >= to acquired score
+    while (true) {
+        //ask for the number of points achieved on the assignment
+        std::cout << "\nHow many points did you get for this assignment?" << std::endl;
+        while (!acceptable_input) {
+            //possible points
+            std::cin >> input;
+            try {
+                score = std::stoi(input);
+                if (score < 0) {
+                    std::cout << "your score cannot be a negative number" << std::endl;
+                }
+                else {
+                    grades_score_vector[index] = score;
+                    acceptable_input = true;
+                }
+            }
+            catch (std::invalid_argument) {
+                std::cout << "unable to convert input to number, try again" << std::endl;
+            }
+        }
+        acceptable_input = false;
+        //total points available for the assignment
+        std::cout << "\nHow many points were available for this assignment?" << std::endl;
+        while (!acceptable_input) {
+            std::cin >> input;
+            try {
+                total = std::stoi(input);
+                if (total < 0) {
+                    std::cout << "your total cannot be a negative number" << std::endl;
+                }
+                else {
+                    grades_total_vector[index] = total;
+                    acceptable_input = true;
+                }
+            }
+            catch (std::invalid_argument) {
+                std::cout << "unable to convert input to number, try again" << std::endl;
+            }
+        }
+        //check to see that the total is greater than or equal to the achieved score
+        if (score > total) {
+            std::cout << "your score cannot be greater than the possible points, try again" << std::endl;
+        }
+        else {
+            break;
+        }
+    }
+    //category of assignment
+    //ask for category (Homework, quiz, test, etc...
+    std::cout << "\nwhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
+    std::cin >> input;
+    categories_vector[index] = input;
 
-	//Takes in user input
-	std::cout << "Old name is: " << this->names_vector[index] << "\nEnter new name: ";
-	std::cin >> name;
-	std::cout << "\nOld grade is : " << this->grades_vector[index] <<"\nEnter new grade: ";
-	std::cin >> grade;
-	std::cout << "\nOld category is : " << this->categories_vector[index] <<"\nEnter new category: ";
-	std::cin >> category;
-	std::cout << "\nOld course is : " << this->courses_vector[index] <<"\nEnter new course: ";
-	std::cin >> course;
-
-	//Appends the user-input values to the proper vector
-	this->names_vector[index] = name;
-	this->grades_vector[index] = grade;
-	this->categories_vector[index] = category;
-	this->courses_vector[index] = course;
-	Generate_Home_UI();
+    //course
+    //ask what course the assignment is from
+    std::cout << "\nwhat course is this assignment from?" << std::endl;
+    std::cin >> input;
+    courses_vector[index] = input;
 }
 
 void Gradebook::Del_Grade(int index) {
