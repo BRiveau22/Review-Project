@@ -9,6 +9,10 @@
 Gradebook::Gradebook(std::string file_name) {
 	this->file_name = file_name;
 	this->num_elements = 0;
+	this->categories_vector = {};
+	this->courses_vector = {};
+	this->names_vector = {};
+	this->grades_vector = {};
 }
 
 int valid_choice(int num_choices) {
@@ -55,11 +59,11 @@ void Gradebook::Add_Grades() {
 	std::cin >> course;
 
 	//Appends the user-input values to the proper vector
-	names_vector.push_back(name);
-	grades_vector.push_back(grade);
-	categories_vector.push_back(category);
-	courses_vector.push_back(course);
-	num_elements++;
+	this->names_vector.push_back(name);
+	this->grades_vector.push_back(grade);
+	this->categories_vector.push_back(category);
+	this->courses_vector.push_back(course);
+	this->num_elements++;
 	Generate_Action3_UI();
 }
 
@@ -71,29 +75,30 @@ void Gradebook::Edit_Grade(int index) {
 	int grade = 0;
 
 	//Takes in user input
-	std::cout << "Old name is: " << names_vector[index] << "\nEnter new name: ";
+	std::cout << "Old name is: " << this->names_vector[index] << "\nEnter new name: ";
 	std::cin >> name;
-	std::cout << "\nOld grade is : " << grades_vector[index] <<"\nEnter new grade: ";
+	std::cout << "\nOld grade is : " << this->grades_vector[index] <<"\nEnter new grade: ";
 	std::cin >> grade;
-	std::cout << "\nOld category is : " << categories_vector[index] <<"\nEnter new category: ";
+	std::cout << "\nOld category is : " << this->categories_vector[index] <<"\nEnter new category: ";
 	std::cin >> category;
-	std::cout << "\nOld course is : " << courses_vector[index] <<"\nEnter new course: ";
+	std::cout << "\nOld course is : " << this->courses_vector[index] <<"\nEnter new course: ";
 	std::cin >> course;
 
 	//Appends the user-input values to the proper vector
-	names_vector[index] = name;
-	grades_vector[index] = grade;
-	categories_vector[index] = category;
-	courses_vector[index] = course;
+	this->names_vector[index] = name;
+	this->grades_vector[index] = grade;
+	this->categories_vector[index] = category;
+	this->courses_vector[index] = course;
 	Generate_Home_UI();
 }
 
 void Gradebook::Del_Grade(int index) {
 	//User can delete grade at specified index
-	names_vector.erase(names_vector.begin() + index);
-	grades_vector.erase(grades_vector.begin() + index);
-	categories_vector.erase(categories_vector.begin() + index);
-	courses_vector.erase(courses_vector.begin() + index);
+	this->names_vector.erase(this->names_vector.begin() + index);
+	this->grades_vector.erase(this->grades_vector.begin() + index);
+	this->categories_vector.erase(this->categories_vector.begin() + index);
+	this->courses_vector.erase(this->courses_vector.begin() + index);
+	this->num_elements--;
 	Generate_Home_UI();
 }
 
