@@ -25,7 +25,6 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Review_Project.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Review_Project.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradebook.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gradebook.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
