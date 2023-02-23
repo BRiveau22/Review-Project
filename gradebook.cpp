@@ -25,7 +25,28 @@ void Gradebook::Add_Grades() {
 }
 
 void Gradebook::Edit_Grade(int index) {
-	//User can edit grade at specified index
+	//Initializes variables
+	std::string name = "";
+	std::string category = "";
+	std::string course = "";
+	int grade = 0;
+
+	//Takes in user input
+	std::cout << "Old name is: " << names_vector[index] << "\nEnter new name: ";
+	std::cin >> name;
+	std::cout << "\nOld grade is : " << grades_vector[index] <<"\nEnter new grade: ";
+	std::cin >> grade;
+	std::cout << "\nOld category is : " << categories_vector[index] <<"\nEnter new category: ";
+	std::cin >> category;
+	std::cout << "\nOld course is : " << courses_vector[index] <<"\nEnter new course: ";
+	std::cin >> course;
+
+	//Appends the user-input values to the proper vector
+	names_vector[index] = name;
+	grades_vector[index] = grade;
+	categories_vector[index] = category;
+	courses_vector[index] = course;
+	Generate_Action4_UI();
 }
 
 void Gradebook::Del_Grade(int index) {
