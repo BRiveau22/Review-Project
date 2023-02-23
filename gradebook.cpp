@@ -31,27 +31,16 @@ int valid_choice(int num_choices) {
 std::vector<int> Gradebook::Search_Grades() {
     std::vector<int> output_indexes;
     std::string input;
-    std::cout << "Please enter what you wish to search for" << std::endl;
+    std::cout << "Please enter what you want to search for:" << std::endl;
     std::cin >> input;
 
     for(int i = 0; i < num_elements; i++){
-        if(std::stoi(input) == grades_vector[i]){
-            output_indexes.push_back(i);
-            continue;
-        }
-        else if(input == names_vector[i]){
-            output_indexes.push_back(i);
-            continue;
-        }
-        else if(input == categories_vector[i]){
-            output_indexes.push_back(i);
-            continue;
-        }
-        else if(input == courses_vector[i]){
+        if(std::stoi(input) == grades_vector[i] || input == names_vector[i] || input == categories_vector[i] || input == courses_vector[i]){
             output_indexes.push_back(i);
             continue;
         }
     }
+
     if(output_indexes.empty()){
         std::cout << "Search results empty" << std::endl;
     }
@@ -59,35 +48,32 @@ std::vector<int> Gradebook::Search_Grades() {
     return output_indexes;
 }
 
-std::vector<int> Gradebook::Filter_Grades() {
+std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
 	std::vector<int> output_indexes;
 
     std::string input;
-    std::cout << "Please enter what you filter by" << std::endl;
+    std::cout << "Please enter what you want to filter by (current grouping is " + filter_category + "):" << std::endl;
     std::cin >> input;
 
     for(int i = 0; i < num_elements; i++){
-        if(std::stoi(input) == grades_vector[i]){
+        if(filter_category == "grade" && std::stoi(input) == grades_vector[i]) {
             output_indexes.push_back(i);
-            continue;
         }
-        else if(input == names_vector[i]){
+        else if(filter_category == "name" && input == names_vector[i]) {
             output_indexes.push_back(i);
-            continue;
         }
-        else if(input == categories_vector[i]){
+        else if(filter_category == "category" && input == categories_vector[i]) {
             output_indexes.push_back(i);
-            continue;
         }
-        else if(input == courses_vector[i]){
+        else if(filter_category == "course" && input == courses_vector[i]) {
             output_indexes.push_back(i);
-            continue;
         }
     }
 
     if(output_indexes.empty()){
         std::cout << "Filter results empty" << std::endl;
     }
+
 	return output_indexes;
 }
 
@@ -333,13 +319,22 @@ void Gradebook::Generate_Action4_UI() {
 }
 
 void Gradebook::Action5_Input_Handler(int choice) {
-    if(choice >= 1 and choice <= 4){
-        Search_Grades();
-    }
-    else if(choice >= 5 and choice <= 8) {
-        Filter_Grades();
-    }
-    else if(choice == 9){
+    if(choice == 1){
+		Filter_Grades("name");
+    } 
+	else if (2) {
+		Filter_Grades("course");
+	}
+	else if (3) {
+		Filter_Grades("category");
+	}
+	else if (4) {
+		Filter_Grades("grade");
+	}
+	else if (5) {
+		Search_Grades();
+	}
+	else if (choice == 6) {
         return Generate_Home_UI();
     }
 }
@@ -351,15 +346,12 @@ void Gradebook::Generate_Action5_UI() {
 	std::cout << "2 - Search by Course" << std::endl;
 	std::cout << "3 - Search by Category" << std::endl;
 	std::cout << "4 - Search by Grade" << std::endl;
-    std::cout << "5 - Filter by Name" << std::endl;
-    std::cout << "6 - Filter by Course" << std::endl;
-    std::cout << "7 - Filter by Category" << std::endl;
-    std::cout << "8 - Filter by Grade" << std::endl;
-	std::cout << "9 - Home" << std::endl;
-	std::cout << "\nPlease enter a value from 1-9" << std::endl;
+	std::cout << "5 - Search All" << std::endl;
+	std::cout << "6 - Home" << std::endl;
+	std::cout << "\nPlease enter a value from 1-6" << std::endl;
 
 	//Runs until a valid choice is input by the user
-	choice = valid_choice(9);
+	choice = valid_choice(6);
 
 	Action5_Input_Handler(choice);
 }

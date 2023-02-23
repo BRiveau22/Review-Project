@@ -15,7 +15,7 @@ private:
 public:
 	Gradebook(std::string file_name);
 	std::vector<int> Search_Grades();//text input from user, outputs a vector of results
-	std::vector<int> Filter_Grades();
+	std::vector<int> Filter_Grades(std::string filter_category);
 	void Add_Grades();
 	void Edit_Grade(int index);//user inputs the index and specifies what aspect of the grade should be changed
 	void Del_Grade(int index);//delete grade at given index
