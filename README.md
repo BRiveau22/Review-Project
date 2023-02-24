@@ -30,6 +30,15 @@ a. Main - Hold name of file from the command line in a variable, open the file, 
 4. Write compilation and runtime instructions
  
  
+Compile Instructions:
+
+1. Open terminal and navigate to directory where project files are located.
+
+2. Enter in command "g++ main.cpp gradebook.cpp -o main.out"
+  This will create a file "main.out" that can be run from the terminal.
+  
+3. Enter in command "main.out " followed by the csv file containing the grades data.
+ 
 Runtime Instructions:
 
 1. Once you have compiled the program you are ready to interact with your virtual gradebook. You will be presented with a menu where you can enter an integer between 1-7 to choose an option. The first option available is to enter 1 to access the different grade display functions. Now you will see a menu where you can input an integer between 1-4. These options are:
