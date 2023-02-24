@@ -1,0 +1,19 @@
+Lab 3,20.000000,50.000000,Labs,CSC 212
+Lab 2,20.000000,20.000000,Labs,CSC 212
+Lab 1,20.000000,20.000000,Labs,CSC 212
+Exercise 1.2,5.000000,5.000000,Activities and Writing Assignments,PSY 103
+Exercise 2.1,5.000000,5.000000,Activities and Writing Assignments,PSY 103
+VIA Survey Results & Reflection,5.000000,5.000000,Activities and Writing Assignments,PSY 103
+Exercise 4.2,5.000000,5.000000,Activities and Writing Assignments,PSY 103
+Pop Quiz - Chapter 4,6.000000,8.000000,Activities and Writing Assignments,PSY 103
+RR1,2.000000,2.000000,Reading Response,WRT 201
+RR2,2.000000,2.000000,Reading Response,WRT 201
+RR3,2.000000,2.000000,Reading Response,WRT 201
+RR4,2.000000,2.000000,Reading Response,WRT 201
+Ch. 1 Music in Antiquity,7.700000,10.000000,Short Quiz,MUS 101
+Extra Credit Pop Quiz,10.000000,10.000000,Short Quiz,MUS 101
+Ch. 2 The Christian Church in the First Millennium,8.000000,10.000000,Short Quiz,MUS 101
+Ch. 3 Roman Liturgy and Chant,10.000000,10.000000,Short Quiz,MUS 101
+Attendance Credit 3,1.000000,1.000000,Short Quiz,MUS 101
+Ch. 1-3 Long Quiz,15.000000,15.000000,Long Quiz,MUS 101
+Maze,50.000000,50.000000,Assignment,CSC 212
