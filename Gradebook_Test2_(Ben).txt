@@ -1,0 +1,21 @@
+Maze,94,100,Assignment,CSC 212
+Lab 1,5,5,Lab,CSC 212
+Lab 2,5,5,Lab,CSC 212
+Lab 3,5,5,Lab,CSC 212
+Lab 4,5,5,Lab,CSC 212
+Lab 5,5,5,Lab,CSC 212
+Lab 6,4,5,Lab,CSC 212
+Lab 7,3,5,Lab,CSC 212
+Lab 8,5,5,Lab,CSC 212
+Lab 9,5,5,Lab,CSC 212
+Lab 10,5,5,Lab,CSC 212
+Lab 11,5,5,Lab,CSC 212
+Review Project,100,100,Assignment,CSC 212
+Assignment 3,87,100,Assignment,CSC 212
+Assignment 4,100,100,Assignment,CSC 212
+Assignment 5,100,100,Assignment,CSC 212
+Final Exam,94,100,Assignment,CSC 212
+Term Project,286,350,Assignment,CSC 212
+Assignment 1,10,10,Assignment,CSC 310
+Assignment 2,100,100,Assignment,CSC 310
+Assignment 3,100,100,Assignment,CSC 310
