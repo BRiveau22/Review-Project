@@ -278,7 +278,7 @@ void Gradebook::Display_Grades_Full() {
 	//Displays all grades
     std::cout <<  "Names\tGrades\tCategories\tCourses" << std::endl;
     std::cout << "____________________________________" << std::endl;
-    for(int i=0; i< this->num_elements-1; i++){
+    for(int i=0; i< this->num_elements; i++){
         std::cout << this->names_vector[i] << "\t" << this->grades_vector[i] << "/" << this->grades_total_vector[i] << "    \t" << this->categories_vector[i] << "\t" << this->courses_vector[i] << std::endl;
         std::cout << "____________________________________" << std::endl;
     }
