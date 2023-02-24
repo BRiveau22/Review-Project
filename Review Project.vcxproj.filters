@@ -21,9 +21,6 @@
     <ClCompile Include="gradebook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Gradebook_Test_Cases.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gradebook.h">
