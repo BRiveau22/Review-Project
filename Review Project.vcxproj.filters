@@ -28,6 +28,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Gradebook_Test2_%28Ben%29.txt" />
+    <Text Include="Gradebook_Test_%28Ben%29.txt" />
   </ItemGroup>
 </Project>
