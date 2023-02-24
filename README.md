@@ -40,13 +40,13 @@ Runtime Instructions:
  
  Home - If you enter 4, you will be brought back to the home menu
  
-2. From the main menu, you can enter 2 to access the edit grades option. WHile using this option, you will be need to input the index of the grade in the data file (starting at index 1), the name of the assignment, the points you received, the total points available, the type of assignment(homework, quiz, exam, etc...), and the name of the course. This allows you to change whichever aspect of the grade that you need to. Afterwards, you will be retunred to the main menu.
+2. From the main menu, you can enter 2 to access the edit grades option. While using this option, you will be need to input the index of the grade in the data file (starting at index 1), the name of the assignment, the points you received, the total points available, the type of assignment(homework, quiz, exam, etc...), and the name of the course. This allows you to change whichever aspect of the grade that you need to. Afterwards, you will be retunred to the main menu.
 
 3. Option 3 on the main menu will let you activate add grade function. Similarily to the edit function, you will be prompted to enter the name of the assignment, points received, possible points, assignment type, and course name. After adding the grade, you can enter 1 to add another grade or enter 2 to return to the home menu.
 
 4. Opposite of the previous option, option 4 allows you to delete a grade. After entering 4 you will be prompted to enter the index(starting at 1) of the grade that you wih to be deleted. The grade and all its data will be deleted and you will be returned to the main menu.
 
-5. 
+5. Option 5 allows you to see a filtered list of all of your grades. The first four options allow you to filter by specific categories (name, course, type of assignment, and grade). Option 5 allows you to search across all categories at once. Lastly, option 6 brings you back home.
 
 6. Once you decide that you would liken overwrite your original text files of grades with the changes you have made, select option 6. All of the new data will overwrite your new data, so be sure that the changes you made are what you want.
 
