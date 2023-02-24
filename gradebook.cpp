@@ -46,7 +46,6 @@ void check_negative(float* vector_reference) {
         //possible points
         try {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cin >> input;
             score = std::stof(input);
             if (score < 0) {
@@ -71,7 +70,7 @@ std::vector<int> Gradebook::Search_Grades() {
 	std::cout << "Please enter what you want to search for:" << std::endl;
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::cin >> input;
+    std::getline(std::cin,input,'\n');
 
 	for (int i = 0; i < num_elements; i++) {
 		if (input == std::to_string(this->grades_vector[i]) || input == this->names_vector[i] || input == this->categories_vector[i] || input == this->courses_vector[i]) {
@@ -93,7 +92,7 @@ std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
 	std::cout << "Please enter what you want to filter by (current grouping is " + filter_category + "):" << std::endl;
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::cin >> input;
+    std::getline(std::cin,input,'\n');
 
 	for (int i = 0; i < num_elements; i++) {
 		if (filter_category == "grade" && std::stof(input) == this->grades_vector[i]) {
@@ -126,7 +125,7 @@ void Gradebook::Add_Grades() {
     std::cout << "\nWhat is the title of the assignment?" << std::endl;
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cin >> input;
+    std::getline(std::cin,input,'\n');
     names_vector.push_back(input);
     //loop that contains grade to check if total is >= to acquired score
     while (!gradeCheck) {
@@ -152,15 +151,14 @@ void Gradebook::Add_Grades() {
     std::cout << "\nWhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cin >> input;
+    std::getline(std::cin,input,'\n');
     categories_vector.push_back(input);
 
     //course
     //ask what course the assignment is from
     std::cout << "\nWhat course is this assignment from?" << std::endl;
     std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cin >> input;
+    std::getline(std::cin,input,'\n');
     courses_vector.push_back(input);
 	num_elements++;
 
@@ -177,7 +175,7 @@ void Gradebook::Edit_Grade(int index) {
     std::cout << "\nWhat is the title of the assignment?" << std::endl;
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cin >> input;
+    std::getline(std::cin,input,'\n');
     names_vector[index] = input;
     //loop that contains grade to check if total is >= to acquired score
     while (!gradeCheck) {
@@ -201,15 +199,14 @@ void Gradebook::Edit_Grade(int index) {
     std::cout << "\nWhat is the category for this assignment? (quiz, test, homework, etc...)" << std::endl;
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cin >> input;
+    std::getline(std::cin,input,'\n');
     categories_vector[index] = input;
 
     //course
     //ask what course the assignment is from
     std::cout << "\nWhat course is this assignment from?" << std::endl;
     std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cin >> input;
+    std::getline(std::cin,input,'\n');
     courses_vector[index] = input;
 	Generate_Home_UI();
 }
@@ -435,7 +432,7 @@ void Gradebook::Generate_Action2_UI() {
 	int edit_index = -1;
 
 	//Checks for valid index
-	std::cout << "Please enter index of grade which you wish to edit: (First entry is index=1)" << std::endl;
+	std::cout << "\nPlease enter index of grade which you wish to edit: (First entry is index=1)" << std::endl;
 	edit_index = valid_choice(num_elements) - 1;
 
 	Edit_Grade(edit_index);
@@ -451,7 +448,7 @@ void Gradebook::Action3_Input_Handler(int choice) {
 }
 
 void Gradebook::Generate_Action3_UI() {
-	std::cout << "Add grades" << std::endl;
+	std::cout << "\nAdd grades" << std::endl;
 
 	int choice = -1;
 	std::cout << "\n1 - Add grade" << std::endl;
@@ -465,7 +462,7 @@ void Gradebook::Generate_Action4_UI() {
 	int del_index = -1;
 	
 	//Checks for valid index
-	std::cout << "Please enter index of grade which you wish to delete: (First entry is index=1)" << std::endl;
+	std::cout << "\nPlease enter index of grade which you wish to delete: (First entry is index=1)" << std::endl;
 	//Currently only works if you enter the location of the element to delete, but not the index
 	del_index = valid_choice(num_elements) - 1;
 	
@@ -506,7 +503,7 @@ void Gradebook::Action5_Input_Handler(int choice) {
 
 void Gradebook::Generate_Action5_UI() {
 	int choice = -1;
-	std::cout << "Search Grades" << std::endl;
+	std::cout << "\nSearch Grades" << std::endl;
 	std::cout << "\n1 - Search by Name" << std::endl;
 	std::cout << "2 - Search by Course" << std::endl;
 	std::cout << "3 - Search by Category" << std::endl;
@@ -523,7 +520,7 @@ void Gradebook::Generate_Action5_UI() {
 
 void Gradebook::Generate_Action6_UI() {
 	Write_Changes();
-	std::cout << "Your changes have been written to " << file_name  << std::endl;
+	std::cout << "\nYour changes have been written to " << file_name  << std::endl;
 	return Generate_Home_UI();
 }
 
