@@ -215,6 +215,7 @@ void Gradebook::Del_Grade(int index) {
 	//User can delete grade at specified index
 	this->names_vector.erase(this->names_vector.begin() + index);
 	this->grades_vector.erase(this->grades_vector.begin() + index);
+	this->grades_total_vector.erase(this->grades_total_vector.begin() + index);
 	this->categories_vector.erase(this->categories_vector.begin() + index);
 	this->courses_vector.erase(this->courses_vector.begin() + index);
 	this->num_elements--;
