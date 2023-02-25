@@ -29,5 +29,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Gradebook_Test_%28Ben%29.txt" />
+    <Text Include="Gradebook_Test_(Grant).txt" />
+    <Text Include="Gradebook_Test_(James).txt" />
   </ItemGroup>
 </Project>

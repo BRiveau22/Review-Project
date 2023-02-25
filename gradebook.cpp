@@ -22,6 +22,7 @@ int valid_choice(int num_choices) {
 	bool valid_choice = false;
 	int choice;
 
+	//Runs until a valid choice is chosen
 	while (!valid_choice) {
 		std::cin >> choice;
 		
@@ -29,6 +30,7 @@ int valid_choice(int num_choices) {
 			valid_choice = true;
 		}
 		else if(std::cin.fail() || choice==0){
+			//Clears the input buffer to ensure that only one input is required
 			std::cout << "Please enter a valid option" << std::endl;
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -43,11 +45,12 @@ void check_negative(float* vector_reference) {
     bool acceptable_input = false;
 
     while (!acceptable_input) {
-        //possible points
+        //Checks if the user enters in a string
         try {
             std::cin.clear();
             std::cin >> input;
             score = std::stof(input);
+			//Checks for proper input of data that is not a string
             if (score < 0) {
                 std::cout << "Your score cannot be a negative number" << std::endl;
             } else if (std::cin.fail()) {
@@ -72,12 +75,14 @@ std::vector<int> Gradebook::Search_Grades() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin,input,'\n');
 
+	//Searches all elements in each vector and returns the indexes of the elements that match the search value
 	for (int i = 0; i < num_elements; i++) {
 		if (input == std::to_string(this->grades_vector[i]) || input == this->names_vector[i] || input == this->categories_vector[i] || input == this->courses_vector[i]) {
 			output_indexes.push_back(i);
 		}
 	}
 
+	//Checks to see if there are any values that match the given search value
 	if (output_indexes.empty()) {
 		std::cout << "Search results empty" << std::endl;
 	}
@@ -94,6 +99,7 @@ std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin,input,'\n');
 
+	//Searches all elements within the selected category and returns the indexes of the elements that match the search value in that category
 	for (int i = 0; i < num_elements; i++) {
 		if (filter_category == "grade" && std::stof(input) == this->grades_vector[i]) {
 			output_indexes.push_back(i);
@@ -109,6 +115,7 @@ std::vector<int> Gradebook::Filter_Grades(std::string filter_category) {
 		}
 	}
 
+	//Checks to see if there are any values that match the given search value in that category
 	if (output_indexes.empty()) {
 		std::cout << "Filter results empty" << std::endl;
 	}
@@ -212,7 +219,7 @@ void Gradebook::Edit_Grade(int index) {
 }
 
 void Gradebook::Del_Grade(int index) {
-	//User can delete grade at specified index
+	//User deletes grade information at specified index
 	this->names_vector.erase(this->names_vector.begin() + index);
 	this->grades_vector.erase(this->grades_vector.begin() + index);
 	this->grades_total_vector.erase(this->grades_total_vector.begin() + index);
@@ -284,7 +291,7 @@ void Gradebook::Display_Grades_Full() {
 }
 
 void Gradebook::Display_Grades_Search(std::vector<int> indexes) {
-	//Displays all grades
+	//Displays all grades that are returned from search/filter functions
 	std::cout << "Names\tGrades\tCategories\tCourses" << std::endl;
 	std::cout << "____________________________________" << std::endl;
 	for (int i = 0; i < indexes.size(); i++) {
@@ -401,6 +408,7 @@ void Gradebook::Display_Course_Overall() {
 }
 
 void Gradebook::Action1_Input_Handler(int choice) {
+	//Handles input for action 1 based on passthrough from action1 UI
 	if (choice == 1) {
 		return Display_Grades_Full();
 	}
@@ -416,6 +424,7 @@ void Gradebook::Action1_Input_Handler(int choice) {
 }
 
 void Gradebook::Generate_Action1_UI() {
+	//Generates the UI for action 1
 	int choice = -1;
 	std::cout << "\n1 - View All" << std::endl;
 	std::cout << "2 - View Categories and Course" << std::endl;
@@ -430,6 +439,7 @@ void Gradebook::Generate_Action1_UI() {
 }
 
 void Gradebook::Generate_Action2_UI() {
+	//Generates the UI for action 2
 	int edit_index = -1;
 
 	//Checks for valid index
@@ -440,6 +450,7 @@ void Gradebook::Generate_Action2_UI() {
 }
 
 void Gradebook::Action3_Input_Handler(int choice) {
+	//Handles input for action 3 based on passthrough from action3 UI
 	if (choice == 1) {
 		Add_Grades();
 	}
@@ -449,6 +460,7 @@ void Gradebook::Action3_Input_Handler(int choice) {
 }
 
 void Gradebook::Generate_Action3_UI() {
+	//Generates the UI for action 3
 	std::cout << "\nAdd grades" << std::endl;
 
 	int choice = -1;
@@ -460,6 +472,7 @@ void Gradebook::Generate_Action3_UI() {
 }
 
 void Gradebook::Generate_Action4_UI() {
+	//Generates the UI for action 4
 	int del_index = -1;
 	
 	//Checks for valid index
@@ -471,6 +484,7 @@ void Gradebook::Generate_Action4_UI() {
 }
 
 void Gradebook::Action5_Input_Handler(int choice) {
+	//Handles input for action 5 based on passthrough from action5 UI
 	std::vector<int> index_vector;
 	if (choice == 1) {
 		index_vector = Filter_Grades("name");
@@ -503,6 +517,7 @@ void Gradebook::Action5_Input_Handler(int choice) {
 }
 
 void Gradebook::Generate_Action5_UI() {
+	//Generates the UI for action 5
 	int choice = -1;
 	std::cout << "\nSearch Grades" << std::endl;
 	std::cout << "\n1 - Search by Name" << std::endl;
@@ -520,12 +535,14 @@ void Gradebook::Generate_Action5_UI() {
 }
 
 void Gradebook::Generate_Action6_UI() {
+	//Generates the UI for action 6
 	Write_Changes();
 	std::cout << "\nYour changes have been written to " << file_name  << std::endl;
 	return Generate_Home_UI();
 }
 
 void Gradebook::Home_Input_Handler(int choice) {
+	//Handles input for the home UI based on passthrough from home UI
 	if (choice == 1) {
 		Generate_Action1_UI();
 	}
@@ -550,6 +567,7 @@ void Gradebook::Home_Input_Handler(int choice) {
 }
 
 void Gradebook::Generate_Home_UI() {
+	//Generates the Home UI
 	int choice = -1;
 	//Generates the startup text-based UI for the user
 	std::cout << "\n1 - View Grades" << std::endl;
